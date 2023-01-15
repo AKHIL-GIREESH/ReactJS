@@ -7,8 +7,7 @@ function App(){
 
   const updateTime = () => {
     currentTime = new Date().toLocaleTimeString()
-    //setInterval(setTime(currentTime),1000)
-    //console.log(new Date())
+    setInterval(setTime(currentTime),1000)
   }
 
   setInterval(updateTime,1000)
