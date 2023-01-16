@@ -16,10 +16,14 @@ p{
 
 button{
   width:30%;
-  height:20%
+  height:20%;
+  border-radius: 3px;
+  border: 1px solid white;
+  margin-top: 15px;
 }
 
 input{
   width:60%;
-  height:15%
+  height:15%;
+  margin:5px
 }
