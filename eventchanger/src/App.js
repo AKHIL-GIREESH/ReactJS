@@ -35,8 +35,8 @@ function App() {
   return (
     <div className='mainDiv'>
       <p>Hello {fullName}</p>
-      <input type="text" placeholder='Enter the fristName' onChange={modifyName} value={val.firstName} name="firstName"/>
-      <input type="text" placeholder="Enter the lastName" onChange={modifyName} value={val.lastName} name="lastName"/>
+      <input type="text" placeholder='Enter the Frist Name' onChange={modifyName} value={val.firstName} name="firstName"/>
+      <input type="text" placeholder="Enter the Last Name" onChange={modifyName} value={val.lastName} name="lastName"/>
       <button onClick={submitName}>Submit</button>
     </div>
   );
