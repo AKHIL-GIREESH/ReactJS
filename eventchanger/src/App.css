@@ -1,0 +1,25 @@
+.mainDiv{
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid white; */
+  width:30vw;
+  height: 30vh;
+  justify-content: space-around;
+  align-items: center;
+}
+
+p{
+  color:deeppink;
+  font-size: 40px;
+  font-weight: 800;
+}
+
+button{
+  width:30%;
+  height:20%
+}
+
+input{
+  width:60%;
+  height:15%
+}
