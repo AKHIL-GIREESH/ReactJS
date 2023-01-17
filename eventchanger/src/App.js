@@ -14,12 +14,12 @@ function App() {
     setVal((prev) => {
       if(event.target.name === "firstName"){
         return {
+          ...prev,
           firstName: event.target.value,
-          lastName: prev.lastName
         }
       }
       return {
-        firstName: prev.firstName,
+        ...prev,
         lastName: event.target.value
       }
     })
