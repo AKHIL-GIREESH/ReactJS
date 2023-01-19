@@ -1,4 +1,36 @@
 .App{
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+}
+
+.addedItems{
+  display: flex;
+  border: 1px solid black;
+  margin:10px;
+  width: 30%;
+  justify-content: space-around;
+  font-size: 20px;
+  align-items: center;
+  border-radius: 5px;
+}
+
+input{
+  width:30vw;
+  height:5vh;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+button{
+  height: 5.5vh;
+  margin-left: 5px;
+  width:5vw;
+}
+
+h1{
+  font-size: 40px;
+  font-weight: 800;
 }

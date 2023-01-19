@@ -12,7 +12,6 @@ function App() {
   }
 
   const removeToDos = (element) => {
-    console.log(element)
     setToDos(prev => prev.filter(item => item !== element));
 }
 
@@ -21,7 +20,7 @@ function App() {
       return(
         <div className='addedItems' key={toDos.indexOf(element)}>
           <p>{element}</p>
-          <button onClick={() => removeToDos(element)}>🗑️</button>
+          <button className='buttons' onClick={() => removeToDos(element)}>🗑️</button>
         </div>
       )
     }))
@@ -29,10 +28,10 @@ function App() {
 
   return (
     <div className="App">
-      To-Do List
+      <h1>TO-DO LIST</h1>
       <div className='inputArea'>
         <input type="text" name="input" onChange={event=>setNewToDo(event.target.value)} value={newToDo}></input>
-        <button onClick={addToDos}> + </button>
+        <button onClick={addToDos} className="button"> ➕ </button>
       </div>
       <Lists/>
     </div>
