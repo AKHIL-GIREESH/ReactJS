@@ -1,9 +1,9 @@
 import './App.css'
 function RenderBoxes(props){
     return(
-        <button className={props.className} onClick={props.onClick}>
+        <div className={props.className} onClick={props.onClick} style={props.style}>
             {props.state?"ON":"OFF"}
-        </button>
+        </div>
     )
 }
 
