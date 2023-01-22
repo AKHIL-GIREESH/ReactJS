@@ -25,7 +25,7 @@ function App() {
   const renderr = boxes.map(item => <RenderBoxes key={item.id} className="box" state={item.state} onClick={()=> changeShade(item.id)} style={item.state?{backgroundColor:"white"}:{backgroundColor:"black",color:"white"}}/>)
   return (
     <div className="App">
-      <h1>Dynamic Boxes </h1>
+      <h1>DYNAMIC BOXES </h1>
         <div className='Boxes'>{renderr}</div>
     </div>
   );
