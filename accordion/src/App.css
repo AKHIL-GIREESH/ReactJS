@@ -21,7 +21,7 @@ h3{
   justify-content: space-around;
   align-items: center;
   height: 30vh;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .textInputField{
@@ -30,7 +30,7 @@ h3{
   align-items: center;
   height: 20vh;
   width: 100%;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 input{
@@ -39,4 +39,33 @@ input{
   border-radius: 5px;
   border: 1px solid;
   font-size: 30px;
+}
+
+img{
+  /* width:40vw; */
+  height: 55vh;
+  z-index:-1;
+  position: relative;
+  margin-top: 10px;
+  border-radius: 15px;
+}
+
+button{
+  height:10vh;
+  width:30vw;
+  color: white;
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 30px;
+}
+
+h2{position: absolute;}
+
+.displayStuff{
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  align-items: center;
+  height:100%;
 }

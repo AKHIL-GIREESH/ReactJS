@@ -48,13 +48,13 @@ function App() {
           <input type="text" onChange={modifyFields} name="firstField" value={joke.firstField}></input>
           <input type="text" onChange={modifyFields} name="secondField" value={joke.secondField}></input>
         </div>
-        <button onClick={generateMemeImage}>Generate Meme</button>
+        <button onClick={generateMemeImage}>GENERATE MEME</button>
       </div>
 
-      <div>
-        FirstDiv{joke.firstField}<br/>
-        SecondDiv{joke.secondField}
-        <img src={joke.image} alt="randomMeme" width="100px"/>
+      <div className='displayStuff'>
+        <h2>{joke.firstField}</h2>
+        <h2>{joke.secondField}</h2>
+        <img src={joke.image} alt="randomMeme"/>
       </div>
 
     </div>
