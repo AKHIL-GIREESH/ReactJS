@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+//import Stuff from './LiftingUpStates'
 
 function App(){
   let currentTime = new Date().toLocaleTimeString()
@@ -14,6 +15,7 @@ function App(){
   return(
     <div className = "displayTime">
       {time}
+      {/* <Stuff/> */}
     </div>
   )
 }
