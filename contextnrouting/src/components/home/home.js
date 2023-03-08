@@ -1,8 +1,12 @@
+import { useNavigate } from "react-router-dom"
+
 const Home = () => {
+
+    const navigate = useNavigate()
     return(
         <>
             Home
-            <button>
+            <button onClick={()=> navigate("NextPage")}>
                 NextPage
             </button>
         </>
