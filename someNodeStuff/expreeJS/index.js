@@ -8,7 +8,7 @@ express.get('/home',(req,res) => {
     res.status(200).send("Landing")
 })
 
-express.get('*',(req,res) => {
+express.all('*',(req,res) => {
     res.status(404).send("Page Not Found")
 })
 
