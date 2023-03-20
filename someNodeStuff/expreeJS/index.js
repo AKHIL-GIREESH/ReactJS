@@ -1,11 +1,12 @@
 const express = require("express")()
 const {products} = require("./data") 
+const logger = require("./logger")
 
-express.get("/",(req,res) => {
+express.get("/",logger,(req,res) => {
     res.status(200).send("<h1>WelcomePage</h1>")
 })
 
-express.get("/Home",(req,res) => {
+express.get("/Home",logger,(req,res) => {
     res.status(200).send("<h2>HomePage</h2>")
 })
 
