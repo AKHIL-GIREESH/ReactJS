@@ -13,9 +13,8 @@ express.get("/products",(req,res) => {
     res.status(200).send(products)
 })
 
-express.get("/products/1",(req,res) => {
-    //console.log(req.params)
-    res.status(200).json(products.find(product => product.id === 1 ))
+express.get("/products/:ProductID",(req,res) => {
+    res.status(200).json(products.find(product => product.id.toString() === req.params.ProductID ))
 })
 
 express.all("*",(req,res) => {
