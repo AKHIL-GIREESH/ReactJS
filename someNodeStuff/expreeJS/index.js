@@ -10,7 +10,12 @@ express.get("/Home",(req,res) => {
 })
 
 express.get("/products",(req,res) => {
-    res.status(200).json(products)
+    res.status(200).send(products)
+})
+
+express.get("/products/1",(req,res) => {
+    //console.log(req.params)
+    res.status(200).json(products.find(product => product.id === 1 ))
 })
 
 express.all("*",(req,res) => {
