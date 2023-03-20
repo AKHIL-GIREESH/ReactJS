@@ -1,4 +1,5 @@
 const express = require("express")()
+const {products} = require("./data") 
 
 express.get("/",(req,res) => {
     res.status(200).send("<h1>WelcomePage</h1>")
@@ -6,6 +7,10 @@ express.get("/",(req,res) => {
 
 express.get("/Home",(req,res) => {
     res.status(200).send("<h2>HomePage</h2>")
+})
+
+express.get("/products",(req,res) => {
+    res.status(200).json(products)
 })
 
 express.all("*",(req,res) => {
