@@ -1,9 +1,10 @@
 const express = require("express")()
 const {products} = require("./data") 
-const logger = require("./logger")
-const authorize = require("./authorize")
+// const logger = require("./logger")
+// const authorize = require("./authorize")
+const morgan = require("morgan")
 
-express.use([authorize,logger])
+express.use(morgan("tiny"))
 
 express.get("/",(req,res) => {
     res.status(200).send("<h1>WelcomePage</h1>")
