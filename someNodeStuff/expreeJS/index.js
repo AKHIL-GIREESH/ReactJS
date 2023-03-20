@@ -1,12 +1,15 @@
 const express = require("express")()
 const {products} = require("./data") 
 const logger = require("./logger")
+const authorize = require("./authorize")
 
-express.get("/",logger,(req,res) => {
+express.use([authorize,logger])
+
+express.get("/",(req,res) => {
     res.status(200).send("<h1>WelcomePage</h1>")
 })
 
-express.get("/Home",logger,(req,res) => {
+express.get("/Home",(req,res) => {
     res.status(200).send("<h2>HomePage</h2>")
 })
 
