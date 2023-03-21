@@ -28,11 +28,11 @@ express.get("/products/:ProductID",(req,res) => {
 })
 
 express.post("/people",(req,res) => {
-    const {name} = req.body
-    if(!name){
+    const {name,id} = req.body
+    if(!name || !id){
         return res.status(401).json({success:false,msg:"Provide Credentials"})
     }
-    res.status(200).json({success:true,msg:[...people,name]})
+    res.status(200).json({success:true,msg:[...people,{id:id,name:name}]})
 })
 
 express.all("*",(req,res) => {
