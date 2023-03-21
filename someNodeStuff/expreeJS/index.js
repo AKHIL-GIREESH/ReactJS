@@ -1,10 +1,15 @@
-const express = require("express")()
+const Express = require("express")
+const express = Express()
 const {products, people} = require("./data") 
 // const logger = require("./logger")
 // const authorize = require("./authorize")
 const morgan = require("morgan")
 
 express.use(morgan("tiny"))
+
+express.use(Express.urlencoded({extended:false}))
+
+express.use(Express.json())
 
 express.get("/",(req,res) => {
     res.status(200).send("<h1>WelcomePage</h1>")
@@ -22,12 +27,12 @@ express.get("/products/:ProductID",(req,res) => {
     res.status(200).json(products.find(product => product.id.toString() === req.params.ProductID ))
 })
 
-express.post("/api/postman/people",(req,res) => {
-    const {name,id} = req.body
-    if(!name || !id){
+express.post("/people",(req,res) => {
+    const {name} = req.body
+    if(!name){
         return res.status(401).json({success:false,msg:"Provide Credentials"})
     }
-    res.status(200).json({success:true,msg:[...people,{id:id, name:name}]})
+    res.status(200).json({success:true,msg:[...people,name]})
 })
 
 express.all("*",(req,res) => {
