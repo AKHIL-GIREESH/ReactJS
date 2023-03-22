@@ -27,6 +27,21 @@ express.get("/products/:ProductID",(req,res) => {
     res.status(200).json(products.find(product => product.id.toString() === req.params.ProductID ))
 })
 
+express.put("/products/:ProductID",(req,res) => {
+    const productAvailability = products.find(product => product.id === Number(req.params))
+    if(!productAvailability){
+
+    }
+    if(!req.body){
+
+    }
+    res.status(200).json(products.map(product => {
+        if (product.id === Number(req.params)){
+            
+        }
+    }))
+})
+
 express.post("/people",(req,res) => {
     const {name,id} = req.body
     if(!name || !id){
@@ -34,6 +49,8 @@ express.post("/people",(req,res) => {
     }
     res.status(200).json({success:true,msg:[...people,{id:id,name:name}]})
 })
+
+
 
 express.all("*",(req,res) => {
     res.status(404).send("<h2>Page Not Found</h2>")
