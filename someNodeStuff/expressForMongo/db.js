@@ -17,5 +17,5 @@ module.exports = {
         })
     },
 
-    getDB: (cb) => {}
+    getDB: () => dbConnection
 }

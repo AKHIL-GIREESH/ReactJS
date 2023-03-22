@@ -1,5 +1,6 @@
 const Express = require("express")
 const express = Express()
+const {connectToDB,getDB} = require("./db")
 
 express.get("/",(req,res) => {
     res.status(200).send("<h1>HomePage</h1>")
