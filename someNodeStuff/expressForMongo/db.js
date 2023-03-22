@@ -1,14 +1,13 @@
 const {MongoClient} = require("mongodb")
-require("dotenv").config({ path: ".env" })
-
-const connectionURI = process.env.connectionURI
+const {connectionURI} = require("./confidential")
 let dbConnection
 
 module.exports = {
     connectToDB:(cb) => {
+        //console.log(connectionURI)
         MongoClient.connect(connectionURI)
         .then((client) => {
-            dbConnection = client.db()
+            dbConnection = client.db("Library")
             return cb()
         })
         .catch((error) => {
