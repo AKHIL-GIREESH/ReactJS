@@ -21,11 +21,12 @@
 
 .Modal {
     position: absolute;
-    top:25vw;
-    right: 25vh;
-    left:25vh;
-    bottom: 25vh;
+    top:50%;
+    left:75%;
+    transform: translate(-50%,-50%);
     background-color: #ffefd5;
+    width:25vw;
+    height: 25vh;
     /* transform: translate(-50%,-50%); */
   }
 
@@ -35,5 +36,5 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(182, 176, 187, 0.3);
+    background-color: rgba(0, 255, 132, 0.3);
   }
