@@ -1,0 +1,39 @@
+/* *{
+    box-sizing: border-box;
+}
+
+.Modal-Container{
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    left:0;
+    right: 0;
+    top:0;
+    bottom:0;
+    background-color: rgba(0, 255, 255,0.5);
+}
+
+.Modal{
+    margin: 0;
+    padding: 0;
+    position: fixed;
+} */
+
+.Modal {
+    position: absolute;
+    top:25vw;
+    right: 25vh;
+    left:25vh;
+    bottom: 25vh;
+    background-color: #ffefd5;
+    /* transform: translate(-50%,-50%); */
+  }
+
+  .Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(182, 176, 187, 0.3);
+  }
