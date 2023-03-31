@@ -30,3 +30,27 @@ express.get("/books",(req,res) => {
         res.status(500).json({err:"couldn't find docs"})
     })
 })
+
+express.get("/addBooks",(req,res) => {
+    const books = []
+
+    db.collection("Books")
+    .insertMany([
+    {
+        Author:"Author3",
+        Name: "Book3",
+        Rating: 4
+    },
+    {
+        Author:"Author4",
+        Name: "Book4",
+        Rating: 5
+    }
+    ])
+
+    db.collection("Books")
+    .find()
+    .forEach(element => books.push(element))
+    .then(() => res.status(200).json(books))
+    .catch(() => res.status(500).json({err:"Something went wrong"}))
+})
