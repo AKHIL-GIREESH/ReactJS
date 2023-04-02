@@ -16,11 +16,10 @@ export default function App() {
         placeholder='Search'
         multiline
         onChangeText={(currentText) => setPlace(currentText)}
-        value = {place}
       />
       <Button
         title={place || "Enter the Location"}
-        onPress={() => <Place name="Earth"/>} 
+        onPress={() => <Place name="Earth"/>}
       />
     </View>
   );
