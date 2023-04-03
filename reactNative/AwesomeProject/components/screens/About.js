@@ -1,7 +1,7 @@
 import { Button, Text } from "react-native"
 const About = ({navigation}) => {
     return(
-        <Button onPress={() => navigation.navigate("Home")} title="This is supposed to be About"/>
+        <Button onPress={() => navigation.navigate("GarudEye")} title="This is supposed to be About"/>
     )
 }
 

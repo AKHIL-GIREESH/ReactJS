@@ -7,6 +7,10 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {NavigationContainer} from "@react-navigation/native"
 import Home from './components/screens/Home';
 import About from './components/screens/About';
+import WildBoar from './components/screens/wildboar';
+import Tiger from './components/screens/Tiger';
+import Deer from './components/screens/deer';
+import Elephant from './components/screens/elephant';
 
 export default function App() {
 
@@ -15,8 +19,12 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name = "Home" component = {Home}/>
+        <Stack.Screen name = "GarudEye" component = {Home}/>
         <Stack.Screen name = "About" component = {About}/>
+        <Stack.Screen name = "Tiger" component = {Tiger}/>
+        <Stack.Screen name = "Elephant" component = {Elephant}/>
+        <Stack.Screen name = "Deer" component = {Deer}/>
+        <Stack.Screen name = "WildBoar" component = {WildBoar}/>
       </Stack.Navigator>
     </NavigationContainer>
 
