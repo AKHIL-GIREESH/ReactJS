@@ -1,8 +1,35 @@
-import { Button, Text } from "react-native"
-const Deer = ({navigation}) => {
+import { Button, Text ,StyleSheet, View, Image} from "react-native"
+const Deer = () => {
     return(
-        <Button onPress={() => navigation.navigate("GarudEye")} title="This is supposed to be Deer"/>
+        <View style={styles.container}>
+      <Image
+        style={styles.image}
+        source={{ uri: 'https://picsum.photos/200' }}
+      />
+      <Text style={styles.text}>Lorem ipsum dolor sit amet</Text>
+    </View>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      backgroundColor: '#fff',
+    },
+    image: {
+      width: '100%',
+      height: 350,
+      borderBottomLeftRadius: 40,
+      borderBottomRightRadius: 40,
+    },
+    text: {
+      fontSize: 20,
+      fontWeight: 'bold',
+      marginVertical: 20,
+    },
+  });
+  
 
 export default Deer

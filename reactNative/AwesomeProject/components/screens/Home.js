@@ -1,6 +1,5 @@
 import { Text, Button } from "react-native"
 import { View, StyleSheet } from 'react-native';
-import Constants from 'expo-constants';
 import {
   SafeAreaView,
   ScrollView,
@@ -9,37 +8,39 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
+import elephantIMG from "../../elephantimg.jpeg"
+import wildBoarIMG from "../../wildboarimg.jpeg"
+import tigerIMG from "../../tigerimg.jpeg"
+import deerIMG from "../../deerIMG.jpeg"
 
-
-import { Card } from 'react-native-paper';
 const { width } = Dimensions.get('window');
 const cardWidth = width * 0.4;
  const cards = [
     {
       title: 'Elephant',
-      text: 'Elephants...',
-      //image: require('../assets/nam-anh-QJbyG6O0ick-unsplash.jpg'),
+      text: '',
+      image: elephantIMG,
     },
     {
       title: 'Tiger',
       text: '',
-      //image: require('../assets/tapan-kumar-choudhury-Cj8LU2T4Rs8-unsplash.jpg'),
+      image: tigerIMG,
     },
     {
       title: 'Wild Boar',
       text: '',
-      //image: require('../assets/ed-van-duijn-414NZVxzc20-unsplash.jpg'),
+      image: wildBoarIMG,
 
     },
     {
       title: 'Deer',
       text: '',
-      //image: require('../assets/divide-by-zero-FGkNt8tO04I-unsplash.jpg'),
+      image:deerIMG,
 
     },
   ];
 
-export default function GarudEye() {
+export default function GarudEye({navigation}) {
   return (
    <SafeAreaView style={styles.container}>
       {/* <View style={styles.header}>
@@ -78,7 +79,7 @@ export default function GarudEye() {
           <View style={styles.cardRow}>
             {cards.map((card, index) => {
               return (
-                <TouchableOpacity>
+                <TouchableOpacity onPress = {() => navigation.navigate(`${card.title.replace(" ","")}`)}>
                   <View key={index} style={styles.card}>
                     <Image source={card.image} style={styles.cardImage} />
                     <Text style={styles.cardTitle}>{card.title}</Text>
