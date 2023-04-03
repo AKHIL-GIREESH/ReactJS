@@ -1,9 +1,7 @@
-import { Text } from "react-native"
-const About = () => {
+import { Button, Text } from "react-native"
+const About = ({navigation}) => {
     return(
-        <Text>
-            This is supposed to be About
-        </Text>
+        <Button onPress={() => navigation.navigate("Home")} title="This is supposed to be About"/>
     )
 }
 
