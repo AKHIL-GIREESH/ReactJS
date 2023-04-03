@@ -1,10 +1,11 @@
 import { Button, Text ,StyleSheet, View, Image} from "react-native"
+import deerIMG from "../../deerIMG.jpeg"
 const Deer = () => {
     return(
         <View style={styles.container}>
       <Image
         style={styles.image}
-        source={{ uri: 'https://picsum.photos/200' }}
+        source={ deerIMG }
       />
       <Text style={styles.text}>Lorem ipsum dolor sit amet</Text>
     </View>

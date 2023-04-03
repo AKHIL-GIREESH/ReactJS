@@ -1,8 +1,36 @@
-import { Button, Text } from "react-native"
+import { Button, Text,StyleSheet, View, Image } from "react-native"
+import tigerIMG from "../../tigerimg.jpeg"
+
 const Tiger = ({navigation}) => {
     return(
-        <Button onPress={() => navigation.navigate("GarudEye")} title="This is supposed to be Tiger"/>
+        <View style={styles.container}>
+      <Image
+        style={styles.image}
+        source={ tigerIMG }
+      />
+      <Text style={styles.text}>Lorem ipsum dolor sit amet</Text>
+    </View>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      backgroundColor: '#fff',
+    },
+    image: {
+      width: '100%',
+      height: 350,
+      borderBottomLeftRadius: 40,
+      borderBottomRightRadius: 40,
+    },
+    text: {
+      fontSize: 20,
+      fontWeight: 'bold',
+      marginVertical: 20,
+    },
+  });
 
 export default Tiger
