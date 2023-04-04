@@ -15,6 +15,15 @@ import deerIMG from "../../deerIMG.jpeg"
 
 const { width } = Dimensions.get('window');
 const cardWidth = width * 0.4;
+const wildAnimalsData = () => {
+    fetch('http://192.168.203.23:3000/wildAnimalsData')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+        return data
+    })
+    .catch((err) => console.log(err))
+}
  const cards = [
     {
       title: 'Elephant',
@@ -89,6 +98,9 @@ export default function GarudEye({navigation}) {
               );
             })}
           </View>
+          <Text>
+            {JSON.stringify(wildAnimalsData())}
+          </Text>
         </ScrollView>
       </View>
     </SafeAreaView>
@@ -122,21 +134,23 @@ const styles = StyleSheet.create({
   rectangle: {
     overflow: 'hidden',
     width: 350,
-    height: 200,
+    height: 300,
     borderRadius: 40,
     backgroundColor: '#ccc',
     alignSelf: 'center',
     marginBottom: 35,
+    marginTop:35,
   },
   section: {
     flex: 1,
     marginBottom: 20,
+    marginTop:20,
   },
   sectionHeading: {
     paddingHorizontal: 10,
-    fontSize: 22,
+    fontSize: 30,
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginBottom: 35,
     color: '#fff',
   },
 

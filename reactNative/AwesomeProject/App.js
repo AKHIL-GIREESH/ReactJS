@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 import Place from './components/placeData';
 // import Navigation from './Navigation';
@@ -12,8 +12,7 @@ import Tiger from './components/screens/Tiger';
 import Deer from './components/screens/deer';
 import Elephant from './components/screens/elephant';
 
-export default function App() {
-
+export default function App() {  
   const Stack = createNativeStackNavigator()
 
   return (
