@@ -1,19 +1,17 @@
 import './App.css';
+import {useState} from "react"
 
 function App() {
 
-  const APIREQ = () => {
-    fetch("https://api.spotify.com/v1/artists/1mYsTxnqsietFxj1OgoGbG")
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(err => console.log(err))
-  }
+  const [search,setSearch] = useState("")
+  console.log(search)
 
   return (
     <div className="App">
       <h1>Playing with APIs</h1>
       <p>API+MERN</p>
-      {APIREQ()}
+      <input type="text" onChange={(e) => setSearch(e.target.value)}></input>
+      <button>Search</button>
     </div>
   );
 }
