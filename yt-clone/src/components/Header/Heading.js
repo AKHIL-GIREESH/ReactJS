@@ -10,8 +10,10 @@ const Heading = () => {
           <button>Sandwitch</button>
           <button>Logo</button>
         </div>
-        <input placeholder='Search' onChange={({target}) => setSearch(target.value)}></input>
-        <button onClick={() => console.log(search)}>Search</button>
+        <div>
+          <input placeholder='Search' onChange={({target}) => setSearch(target.value)}></input>
+          <button onClick={() => console.log(search)}>Search</button>
+        </div>
         <button>Profile</button>
       </div>
     )
