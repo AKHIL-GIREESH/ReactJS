@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <div className='header'>
-        <button>Snadwitch</button>
+        <button>Sandwitch</button>
         <button>Logo</button>
         <input placeholder='Search' onChange={({target}) => setSearch(target.value)}></input>
         <button onClick={() => console.log(search)}>Search</button>
