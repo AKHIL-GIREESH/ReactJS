@@ -2,10 +2,13 @@ const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
 const main = async () => {
-    const resp = await fetch("https://fisat.ac.in/");
+    const resp = await fetch("https://fisat.ac.in/",{includeNodeLocations: true});
     const respHTML = await resp.text()
     const dom = new JSDOM(respHTML)
-    dom.window.document.querySelectorAll("marquee").forEach(item => console.log(item.innerHTML))
+    //dom.window.document.querySelectorAll("marquee").forEach(item => console.log(item.innerHTML))
+    
+    console.log(dom.nodeLocation())
+    
     // const respHTMLArrayOpening = respHTML.split(`<marquee behavior="scroll" direction="left" scrollamount="8" loop="infinite" onmouseover="this.stop()" onmouseout="this.start()">`)
     // const respHTMLArrayClosing = respHTML.split("</marquee>")
 
