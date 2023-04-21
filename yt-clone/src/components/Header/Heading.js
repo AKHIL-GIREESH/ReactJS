@@ -12,7 +12,7 @@ const Heading = () => {
         </div>
         <div>
           <input placeholder='Search' onChange={({target}) => setSearch(target.value)}></input>
-          <button onClick={() => console.log(search)}>Search</button>
+          <button className="searchButton" onClick={() => console.log(search)}>Search</button>
         </div>
         <button>Profile</button>
       </div>
