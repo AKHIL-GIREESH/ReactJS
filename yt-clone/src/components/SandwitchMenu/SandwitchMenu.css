@@ -6,7 +6,7 @@
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
-    position: absolute;
+    position: fixed;
 }
 
 .emptyDiv{
@@ -23,3 +23,9 @@
     border: 1px solid salmon;
     max-height: 100%;
 }
+.CardLContainerOuter{
+    border: 1px solid seagreen;
+    width:100%;
+    min-height:90vh;
+    max-height: 98%;
+  }

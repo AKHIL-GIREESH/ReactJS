@@ -11,6 +11,7 @@ function App() {
   return (
     <div className="App">
       <Heading/>
+      <div className='headerEmptyDiv'></div>
       <div>
         <Routes>
           <Route path="/" element={<SandwitchMenu/>}>
