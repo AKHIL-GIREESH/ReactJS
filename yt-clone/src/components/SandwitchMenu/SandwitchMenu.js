@@ -3,16 +3,17 @@ import "./SandwitchMenu.css"
 
 const SandwitchMenu = () => {
     return(
-        <>
+        <div className="feed">
             <div className="SandWitchMenu">
                 <NavLink to="Home">Home</NavLink>
                 <NavLink to="History">History</NavLink>
                 <NavLink to="Liked">Liked</NavLink>
             </div>
-            <div>
+            <div className="emptyDiv"></div>
+            <div className="videoFeed">
                 <Outlet/>
             </div>
-        </>
+        </div>
     )
 }
 

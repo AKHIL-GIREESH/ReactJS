@@ -1,12 +1,10 @@
 import './App.css';
-//import ThumbNail from "./components/ThumbNail";
 import Heading from './components/Header/Heading';
 import SandwitchMenu from './components/SandwitchMenu/SandwitchMenu';
 import { Routes,Route } from 'react-router';
-//import { useState } from 'react';
-import Home from './components/Home';
-import Liked from './components/Liked';
-import History from './components/History';
+import Home from './components/Pages/Home';
+import Liked from './components/Pages/Liked';
+import History from './components/Pages/History';
 
 function App() {
 
@@ -22,9 +20,6 @@ function App() {
           </Route>
         </Routes>
       </div>
-      {/* <div className='thumbNails'>
-        <ThumbNail/>
-      </div> */}
     </div>
   );
 }
