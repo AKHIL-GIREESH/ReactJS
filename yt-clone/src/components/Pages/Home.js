@@ -2,7 +2,7 @@ import {CardL} from "./Card"
 
 const Home = () => {
     return(
-        <div>
+        <div className="CardLContainerOuter">
             <CardL/>
             <CardL/>
             <CardL/>

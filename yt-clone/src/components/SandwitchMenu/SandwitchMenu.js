@@ -11,9 +11,7 @@ const SandwitchMenu = () => {
             </div>
             <div className="emptyDiv"></div>
             <div className="videoFeed">
-                <div className="CardLContainerOuter">
                     <Outlet/>
-                </div>
             </div>
         </div>
     )

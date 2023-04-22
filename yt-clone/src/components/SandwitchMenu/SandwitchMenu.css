@@ -14,18 +14,23 @@
 }
 
 .feed{
-    display:flex
+    display:flex;
 }
 
 .videoFeed{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 80%;
     min-height: 92vh;
     border: 1px solid salmon;
     max-height: 100%;
 }
 .CardLContainerOuter{
+    display: flex;
+    flex-wrap: wrap;
     border: 1px solid seagreen;
-    width:100%;
+    width:98%;
     min-height:90vh;
     max-height: 98%;
   }
