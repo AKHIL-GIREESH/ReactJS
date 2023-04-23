@@ -31,6 +31,8 @@
     flex-wrap: wrap;
     border: 1px solid seagreen;
     width:98%;
-    min-height:90vh;
-    max-height: 98%;
+    height:90vh;
+    /* max-height: 98%; */
+    overflow: scroll;
+    justify-content: center;
   }
