@@ -20,19 +20,19 @@
 .videoFeed{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
     width: 80%;
     min-height: 92vh;
     border: 1px solid salmon;
     max-height: 100%;
 }
-.CardLContainerOuter{
+/* .CardLContainerOuter{
     display: flex;
     flex-wrap: wrap;
     border: 1px solid seagreen;
     width:98%;
     height:90vh;
-    /* max-height: 98%; */
     overflow: scroll;
     justify-content: center;
-  }
+  } */
