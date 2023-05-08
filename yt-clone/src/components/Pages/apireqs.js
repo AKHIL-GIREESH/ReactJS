@@ -1,6 +1,6 @@
-const APIFunc = async () => {
+const APIFeed = async (search) => {
     const trow = []
-    const url = 'https://youtube-v31.p.rapidapi.com/search?q=javascript&part=snippet%2Cid&regionCode=US&maxResults=5&order=date';
+    const url = `https://youtube-v31.p.rapidapi.com/search?q=${search}&part=snippet%2Cid&regionCode=US&maxResults=5&order=date`;
     const options = {
       method: 'GET',
       headers: {
@@ -15,14 +15,15 @@ const APIFunc = async () => {
         console.log(result);
         console.log(result.items)
         const feedData = result.items
-        for(let i=0;i<feedData.length;i++){
-            trow.push(feedData[i].snippet.title)
-            // setRowList(prev => [prev]+[feedData[i].snippet.description])
-        }
+        // for(let i=0;i<feedData.length;i++){
+        //     trow.push(feedData[i])
+        //     // setRowList(prev => [prev]+[feedData[i].snippet.description])
+        // }
+        return feedData
     } catch (error) {
         console.error(error);
     }
-    console.log(trow)
+    // console.log(trow)
     }
     
-module.exports = APIFunc
+module.exports = APIFeed

@@ -16,7 +16,7 @@ try {
     console.log(result.items)
     const feedData = result.items
     for(let i=0;i<feedData.length;i++){
-        trow.push(feedData[i].snippet.title)
+        trow.push(feedData[i].snippet)
         // setRowList(prev => [prev]+[feedData[i].snippet.description])
     }
 } catch (error) {
