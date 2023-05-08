@@ -1,4 +1,5 @@
 import "../../App.css"
+import APIFunc from "./apireqs"
 
 const CardS = () => {
     return(
