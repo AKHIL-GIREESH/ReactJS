@@ -10,7 +10,7 @@ const APIs = () => {
     useEffect(() => {
         (async function feedData(){
         const trow = []
-        const url = 'https://youtube-v31.p.rapidapi.com/search?q=javascript&part=snippet%2Cid&regionCode=US&maxResults=2&order=date';
+        const url = 'https://youtube-v31.p.rapidapi.com/search?q=javascript&part=snippet%2Cid&regionCode=US&maxResults=6&order=date';
         const options = {
         method: 'GET',
         headers: {
@@ -25,7 +25,19 @@ const APIs = () => {
         console.log(result.items)
         const feedData = result.items
         for(let i=0;i<feedData.length;i++){
-            trow.push(feedData[i].snippet.title)
+            trow.push(//feedData[i].snippet.title
+            <div className="CardLContainer" key={i}>
+            <img className="CardLThumbnail" alt="img"></img>
+            <div className="CardLDesc">
+              <p>{feedData[i].snippet.title}</p>
+              <div className="CardLDes_details">
+                <p>Views</p>
+                <p>.</p>
+                <p>Uploaded</p>
+              </div>
+            </div>
+          </div>
+            )
             // setRowList(prev => [prev]+[feedData[i].snippet.description])
         }
         console.log(trow)
