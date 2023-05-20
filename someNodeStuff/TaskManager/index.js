@@ -1,6 +1,8 @@
 const tasks = require('./routes/tasks')
 const express = require("express")
 const app = express()
+const connectDB = require("./db/connect")
+require("dotenv").config()
 
 app.use(express.json())
 
@@ -10,4 +12,10 @@ app.get("/",(req,res)=>{
 
 app.use('/api/v1/tasks', tasks)
 
-app.listen(3001,() => console.log("Server is Running"))
+const commense = () => {
+    connectDB(process.env.DBCONNECT)
+    .then(() => app.listen(3001,() => console.log("Server is Running")))
+    .catch(err => console.log(err))
+}
+
+commense()
