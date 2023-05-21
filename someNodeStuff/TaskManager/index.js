@@ -2,6 +2,8 @@ const tasks = require('./routes/tasks')
 const express = require("express")
 const app = express()
 const connectDB = require("./db/connect")
+const ErrorPage = require("./middlewares/404")
+const AsyncWrapper = require("./middlewares/asyncWrapper")
 require("dotenv").config()
 
 app.use(express.json())
@@ -11,6 +13,8 @@ app.get("/",(req,res)=>{
 })
 
 app.use('/api/v1/tasks', tasks)
+app.use(ErrorPage)
+
 
 const commense = () => {
     connectDB(process.env.DBCONNECT)
