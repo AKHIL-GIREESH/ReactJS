@@ -3,7 +3,7 @@ const express = require("express")
 const app = express()
 const connectDB = require("./db/connect")
 const ErrorPage = require("./middlewares/404")
-const AsyncWrapper = require("./middlewares/asyncWrapper")
+const errorHandler = require("./middlewares/errorHandler")
 require("dotenv").config()
 
 app.use(express.json())
@@ -14,11 +14,12 @@ app.get("/",(req,res)=>{
 
 app.use('/api/v1/tasks', tasks)
 app.use(ErrorPage)
+app.use(errorHandler)
 
 
 const commense = () => {
     connectDB(process.env.DBCONNECT)
-    .then(() => app.listen(3001,() => console.log("Server is Running")))
+    .then(() => app.listen(process.env.PORT || 3001,() => console.log("Server is Running")))
     .catch(err => console.log(err))
 }
 
