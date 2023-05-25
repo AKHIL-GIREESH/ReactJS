@@ -1,0 +1,10 @@
+const Product = require("./models/product")
+const dbConnect = require("./db/dbConnect")
+require("dotenv").config()
+const items = require("./items.json")
+
+dbConnect(process.env.DBCONNECT)
+.then(Product.deleteMany())
+.then(Product.create(items))
+.then(() => console.log("Works!"))
+.catch(err => console.log(err))
