@@ -4,8 +4,10 @@ const dbConnect = require("./db/connect")
 require("dotenv").config()
 const router = require("./routes/main")
 
+app.use(express.json());
 app.get("/",(req,res) => res.status(200).send("<h1>HomePage</h1>"));
-app.use("/api/v1",router).use(express.json());
+app.use("/api/v1",router);
+
 
 (() => {
     dbConnect(process.env.DBCONNECT)
