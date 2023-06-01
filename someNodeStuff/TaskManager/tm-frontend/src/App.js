@@ -3,7 +3,11 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      Hello World
+      <h1>Task Manager</h1>
+      <input type="text"/>
+      <div className="glassDiv">
+        
+      </div>
     </div>
   );
 }
