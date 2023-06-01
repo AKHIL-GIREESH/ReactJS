@@ -15,16 +15,7 @@ const Login = async (req,res) => {
     res.status(200).json({ msg: 'user created', token })
 }
 const DashBoard = async (req,res) => {
-    try{
-        const {authorization} = req.headers
-        if(!(authorization.startsWith("Bearer"))){
-            res.send("No token Provided")
-        }
-        const verification = jwt.verify(authorization.split(" ")[1],process.env.JWT_SECRET)
-        res.status(200).send(`<h1>Welcome Back ${verification.username} </h1>`)
-    }catch(err){
-        res.status(500).send("Something Went Wrong!")
-    }
+        res.status(200).send(`<h1>Welcome Back ${req.headers.loggedUser.username} </h1>`)
 }
 
 module.exports = {Login,DashBoard}
