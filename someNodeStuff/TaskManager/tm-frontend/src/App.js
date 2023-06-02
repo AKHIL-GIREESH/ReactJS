@@ -4,7 +4,10 @@ function App() {
   return (
     <div className="App">
       <h1>Task Manager</h1>
-      <input type="text"/>
+      <div className="newTask">
+        <input type="text"/>
+        <button>✔️</button>
+      </div>
       <div className="glassDiv">
         
       </div>
