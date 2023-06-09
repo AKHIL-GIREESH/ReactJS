@@ -1,5 +1,6 @@
 import './App.css';
 import {useEffect, useState} from "react"
+import Tasks from './tasks';
 
 function App() {
 
@@ -12,14 +13,19 @@ function App() {
     .catch(error => console.log(error))
   },[])
 
+  // const modifyTask = () => {
+  //   fetch(`http://localhost:3001/api/v1/tasks/${hell}`)
+  // }
+
   let rowList = data?.map(element => {
     return( 
-        <div className='newTask' key={element._id}>
-          <input type="text" value={element.task}/>
-          {<button className='saveButton' onClick={() => console.log(element)}>Save</button>}
-          {element.condition?<input type="checkbox" checked></input>:<input type="checkbox"></input>}
-          <button>🗑️</button>
-        </div>
+        <Tasks element={element}/>
+        // <div className='newTask' key={element._id}>
+        //   <input type="text" value={element.task}/>
+        //   {<button className='saveButton' onClick={modifyTask}>Save</button>}
+        //   {element.condition?<input type="checkbox" checked></input>:<input type="checkbox"></input>}
+        //   <button>🗑️</button>
+        // </div>
       )
     });
 
