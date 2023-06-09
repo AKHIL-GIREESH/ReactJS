@@ -5,7 +5,9 @@ const connectDB = require("./db/connect")
 const ErrorPage = require("./middlewares/404")
 const errorHandler = require("./middlewares/errorHandler")
 require("dotenv").config()
+const cors = require("cors")
 
+app.use(cors())
 app.use(express.json())
 
 app.get("/",(req,res)=>{
@@ -15,7 +17,6 @@ app.get("/",(req,res)=>{
 app.use('/api/v1/tasks', tasks)
 app.use(ErrorPage)
 app.use(errorHandler)
-
 
 const commense = () => {
     connectDB(process.env.DBCONNECT)

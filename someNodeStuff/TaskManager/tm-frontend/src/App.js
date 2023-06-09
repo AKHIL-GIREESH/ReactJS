@@ -1,10 +1,23 @@
 import './App.css';
-import {useState} from "react"
+import {useEffect, useState} from "react"
 
 function App() {
 
-  const [count,setCount] = useState(0)
-  setTimeout(() => setCount(1) ,5000)
+  const [data,setData] = useState()
+  //setTimeout(() => setCount(1) ,5000)
+  useEffect(() => {
+    fetch("http://localhost:3001/api/v1/tasks",{ mode: 'cors' })
+    .then(resp => resp.json())
+    .then(data => setData(data.task))
+    .catch(error => console.log(error))
+  },[])
+
+  const generateTasks = () => {
+    const rowList = []
+    data.map(element => {
+      console.log(element)
+    });
+  }
 
   return (
     <div className="App">
@@ -13,8 +26,8 @@ function App() {
         <input type="text"/>
         <button>✔️</button>
       </div>
-      {count>0 && <div className="glassDiv">
-        
+      {data && <div className="glassDiv">
+        {generateTasks()}
       </div>}
     </div>
   );
