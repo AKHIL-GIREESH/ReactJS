@@ -16,7 +16,7 @@ function App() {
     return( 
         <div className='newTask'>
           <input type="text" value={element.task}/>
-          {element.condition?<button>↩️</button>:<button>✔️</button>}
+          {element.condition?<input type="checkbox" checked></input>:<input type="checkbox"></input>}
           <button>🗑️</button>
         </div>
       )
