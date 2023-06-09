@@ -16,7 +16,8 @@ function App() {
     return( 
         <div className='newTask'>
           <input type="text" value={element.task}/>
-          <button>✔️</button>
+          {element.condition?<button>↩️</button>:<button>✔️</button>}
+          <button>🗑️</button>
         </div>
       )
     });
