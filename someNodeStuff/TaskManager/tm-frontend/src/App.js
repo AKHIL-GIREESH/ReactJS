@@ -12,12 +12,14 @@ function App() {
     .catch(error => console.log(error))
   },[])
 
-  const generateTasks = () => {
-    const rowList = []
-    data.map(element => {
-      console.log(element)
+  let rowList = data?.map(element => {
+    return( 
+        <div className='newTask'>
+          <input type="text" value={element.task}/>
+          <button>✔️</button>
+        </div>
+      )
     });
-  }
 
   return (
     <div className="App">
@@ -27,7 +29,7 @@ function App() {
         <button>✔️</button>
       </div>
       {data && <div className="glassDiv">
-        {generateTasks()}
+        {rowList}
       </div>}
     </div>
   );
