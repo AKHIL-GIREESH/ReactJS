@@ -4,7 +4,6 @@ import {useEffect, useState} from "react"
 function App() {
 
   const [data,setData] = useState()
-  const [taskData,setTaskData] = useState({})
   //setTimeout(() => setCount(1) ,5000)
   useEffect(() => {
     fetch("http://localhost:3001/api/v1/tasks",{ mode: 'cors' })
