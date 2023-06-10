@@ -5,7 +5,7 @@ import Tasks from './tasks';
 function App() {
 
   const [data,setData] = useState();
-  const [open,setOpen] = useState()
+  const [open,setOpen] = useState(false)
   //setTimeout(() => setCount(1) ,5000)
   useEffect(() => {
     fetch("http://localhost:3001/api/v1/tasks",{ mode: 'cors' })
