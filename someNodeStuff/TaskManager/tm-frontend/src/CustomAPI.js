@@ -1,11 +1,11 @@
 const CustomAPI = (method,route,data) => {
-    fetch(`http://localhost:3001/api/v1/tasks`,{
-            method:"POST",
+    fetch(`http://localhost:3001/api/v1/tasks`,{ //route
+            method:"POST",                       //method
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                task:newTask
+                task:newTask                    //data
             })
         }
         )
