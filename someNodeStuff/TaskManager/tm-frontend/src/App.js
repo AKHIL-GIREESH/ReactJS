@@ -5,13 +5,15 @@ import Tasks from './tasks';
 function App() {
 
   const [data,setData] = useState();
+  const [newTask,setNewTask] = useState("")
+  const [renderflag,setRenderFlag] = useState(false)
   //setTimeout(() => setCount(1) ,5000)
   useEffect(() => {
     fetch("http://localhost:3001/api/v1/tasks",{ mode: 'cors' })
     .then(resp => resp.json())
     .then(data => setData(data.task))
     .catch(error => console.log(error))
-  },[])
+  },[renderflag])
 
   // const modifyTask = () => {
   //   fetch(`http://localhost:3001/api/v1/tasks/${hell}`)
@@ -30,12 +32,30 @@ function App() {
     // } */}
   )});
 
+  const createNewTask = () => {
+    fetch(`http://localhost:3001/api/v1/tasks`,{
+            method:"POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                task:newTask
+            })
+        }
+        )
+        .then(resp => resp.json())
+        .then(data => console.log(data))
+        .then(() => setRenderFlag(!renderflag))
+        .then(() => setNewTask(""))
+        .catch(err => console.log(err))
+  }
+
   return (
     <div className="App">
       <h1>Task Manager</h1>
       <div className="newTask">
-        <input type="text"/>
-        <button>✔️</button>
+        <input type="text" onChange={(e) => setNewTask(e.target.value)} value={newTask}/>
+        <button onClick={createNewTask}>✔️</button>
       </div>
       {data && <div className="glassDiv">
         {rowList}
