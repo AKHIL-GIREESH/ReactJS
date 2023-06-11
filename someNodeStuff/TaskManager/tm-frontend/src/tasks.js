@@ -2,18 +2,24 @@ import { useState } from "react"
 
 const Tasks = ({element}) => {
 
-    const [valModified,setValModified] = useState()
+    const [valModified,setValModified] = useState(false)
+    const [val,setVal] = useState(element.task)
 
     const checkModified = (event) => {
-        console.log(event)
+        setVal(event.target.value)
+        event.target.value !== element.task ? setValModified(true) : setValModified(false)
+        //console.log(modifyField)
     }
 
     const updateTask = () => {
+
         fetch(`http://localhost:3001/api/v1/tasks/${element._id}`,{
             method:"PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
             body: JSON.stringify({
-                task:""
-
+                task:val
             })
         }
         )
@@ -24,8 +30,8 @@ const Tasks = ({element}) => {
 
     return(
         <div className='newTask' key={element._id}>
-          <input type="text" value={element.task} onChange={() => checkModified()}/>
-          {<button className='saveButton' onClick={() => console.log(element)}>Save</button>}
+          <input type="text" value={val} name="modifyField" onChange={(e) => checkModified(e)}/>
+          <button className='saveButton' onClick={() => updateTask()} disabled={valModified?false:true}>Save</button>
           {element.condition?<input type="checkbox" checked></input>:<input type="checkbox"></input>}
           <button>🗑️</button>
         </div>
