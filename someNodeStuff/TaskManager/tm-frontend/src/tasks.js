@@ -27,7 +27,7 @@ const Tasks = ({element,reRenderFunc}) => {
         // .then(resp => resp.json())
         // .then(data => console.log(data))
         // .catch(err => console.log(err))
-        CustomAPI("PATCH","/${element._id}",{condition: !element.condition},reRenderFunc)
+        CustomAPI("PATCH",`/${element._id}`,{condition: !element.condition},reRenderFunc)
     }
 
     const updateTask = () => {
@@ -44,7 +44,7 @@ const Tasks = ({element,reRenderFunc}) => {
         // .then(resp => resp.json())
         // .then(data => console.log(data))
         // .catch(err => console.log(err))
-        CustomAPI("PATCH","/${element._id}",{task:val},reRenderFunc)
+        CustomAPI("PATCH",`/${element._id}`,{task:val},reRenderFunc)
 
     }
 
