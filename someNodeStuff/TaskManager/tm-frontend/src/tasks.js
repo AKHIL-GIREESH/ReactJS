@@ -49,12 +49,16 @@ const Tasks = ({element,reRenderFunc}) => {
 
     }
 
+    const deleteTask = () => {
+        CustomAPI("DELETE",`/${element._id}`,{},reRenderFunc)
+    }
+
     return(
         <div className='newTask' key={element._id}>
           <input type="text" value={val} name="modifyField" onChange={(e) => checkModified(e)}/>
           <button className='saveButton' onClick={() => updateTask()} disabled={valModified?false:true}>Save</button>
           <input type="checkbox" checked={element.condition} onChange={() => updateStatus()}/>
-          <button>🗑️</button>
+          <button onClick={deleteTask}>🗑️</button>
         </div>
     )
 }
