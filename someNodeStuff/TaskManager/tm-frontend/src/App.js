@@ -1,6 +1,7 @@
 import './App.css';
 import {useEffect, useState} from "react"
 import Tasks from './tasks';
+import CustomAPI from './CustomAPI';
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
 
   let rowList = data?.map(element => {
     return(
-        <Tasks element={element}/>
+        <Tasks element={element} reRenderFunc={reRenderFunc}/>
     //     {/* // <div className='newTask' key={element._id}>
     //     //   <input type="text" value={element.task}/>
     //     //   {<button className='saveButton' onClick={modifyTask}>Save</button>}
@@ -32,22 +33,30 @@ function App() {
     // } */}
   )});
 
+  const reRenderFunc = () => {
+    setRenderFlag(!renderflag)
+  }
+
   const createNewTask = () => {
-    fetch(`http://localhost:3001/api/v1/tasks`,{
-            method:"POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                task:newTask
-            })
-        }
-        )
-        .then(resp => resp.json())
-        .then(data => console.log(data))
-        .then(() => setRenderFlag(!renderflag))
-        .then(() => setNewTask(""))
-        .catch(err => console.log(err))
+    // fetch(`http://localhost:3001/api/v1/tasks`,{
+    //         method:"POST",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify({
+    //             task:newTask
+    //         })
+    //     }
+    //     )
+    //     .then(resp => resp.json())
+    //     .then(data => console.log(data))
+    //     .then(() => setRenderFlag(!renderflag))
+    //     .then(() => setNewTask(""))
+    //     .catch(err => console.log(err))
+
+    CustomAPI("POST","",{task:newTask},reRenderFunc)
+    .then(() => setNewTask(""))
+
   }
 
   return (

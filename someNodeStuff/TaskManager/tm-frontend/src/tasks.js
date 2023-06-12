@@ -1,6 +1,7 @@
 import { useState } from "react"
+import CustomAPI from "./CustomAPI"
 
-const Tasks = ({element}) => {
+const Tasks = ({element,reRenderFunc}) => {
 
     const [valModified,setValModified] = useState(false)
     const [val,setVal] = useState(element.task)
@@ -13,35 +14,38 @@ const Tasks = ({element}) => {
     }
 
     const updateStatus = () => {
-        fetch(`http://localhost:3001/api/v1/tasks/${element._id}`,{
-            method:"PATCH",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                condition: !element.condition
-            })
-        }
-        )
-        .then(resp => resp.json())
-        .then(data => console.log(data))
-        .catch(err => console.log(err))
+        // fetch(`http://localhost:3001/api/v1/tasks/${element._id}`,{
+        //     method:"PATCH",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify({
+        //         condition: !element.condition
+        //     })
+        // }
+        // )
+        // .then(resp => resp.json())
+        // .then(data => console.log(data))
+        // .catch(err => console.log(err))
+        CustomAPI("PATCH","/${element._id}",dataObj = {condition: !element.condition},reRenderFunc)
     }
 
     const updateTask = () => {
-        fetch(`http://localhost:3001/api/v1/tasks/${element._id}`,{
-            method:"PATCH",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                task:val
-            })
-        }
-        )
-        .then(resp => resp.json())
-        .then(data => console.log(data))
-        .catch(err => console.log(err))
+        // fetch(`http://localhost:3001/api/v1/tasks/${element._id}`,{
+        //     method:"PATCH",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify({
+        //         task:val
+        //     })
+        // }
+        // )
+        // .then(resp => resp.json())
+        // .then(data => console.log(data))
+        // .catch(err => console.log(err))
+        CustomAPI("PATCH","/${element._id}",dataObj = {task:val},reRenderFunc)
+
     }
 
     return(
