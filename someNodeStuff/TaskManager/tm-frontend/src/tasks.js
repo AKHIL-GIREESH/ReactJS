@@ -45,6 +45,7 @@ const Tasks = ({element,reRenderFunc}) => {
         // .then(data => console.log(data))
         // .catch(err => console.log(err))
         CustomAPI("PATCH",`/${element._id}`,{task:val},reRenderFunc)
+        .then(setValModified(false))
 
     }
 
