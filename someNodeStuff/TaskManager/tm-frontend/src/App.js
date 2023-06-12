@@ -9,6 +9,11 @@ function App() {
   const [newTask,setNewTask] = useState("")
   const [renderflag,setRenderFlag] = useState(false)
   //setTimeout(() => setCount(1) ,5000)
+
+  const reRenderFunc = () => {
+    setRenderFlag(!renderflag)
+  }
+
   useEffect(() => {
     fetch("http://localhost:3001/api/v1/tasks",{ mode: 'cors' })
     .then(resp => resp.json())
@@ -32,10 +37,6 @@ function App() {
     //   )
     // } */}
   )});
-
-  const reRenderFunc = () => {
-    setRenderFlag(!renderflag)
-  }
 
   const createNewTask = () => {
     // fetch(`http://localhost:3001/api/v1/tasks`,{
