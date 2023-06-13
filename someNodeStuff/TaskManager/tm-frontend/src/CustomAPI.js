@@ -1,11 +1,11 @@
 const CustomAPI = (method,route,dataObj = {},reRenderFunc) => {
-    return fetch(`http://localhost:3001/api/v1/tasks${route}`,{ //route
-            method:method,                       //method
+    return fetch(`http://localhost:3001/api/v1/tasks${route}`,{ 
+            method:method,                       
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(
-                dataObj                   //data
+                dataObj                   
             )
         }
         )
