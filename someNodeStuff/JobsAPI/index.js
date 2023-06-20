@@ -9,3 +9,5 @@ const start = () => {
     .then(() => app.listen(process.env.PORT,() => console.log("Server is Up!")))
     .catch(err => console.log(err))
 }
+
+start()
