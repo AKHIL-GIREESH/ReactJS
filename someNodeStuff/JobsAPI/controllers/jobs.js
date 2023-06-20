@@ -17,3 +17,5 @@ const updateJob = (req,res) => {
 const deleteJob = (req,res) => {
     res.status(200).send("Delete")
 }
+
+module.exports = {getAllJobs,getJob,createJob,updateJob,deleteJob}
