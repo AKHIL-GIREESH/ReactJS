@@ -1,4 +1,4 @@
-const AsyncWrapper = () => {
+const AsyncWrapper = (func) => {
 
 }
 

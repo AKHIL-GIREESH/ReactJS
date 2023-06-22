@@ -1,8 +1,15 @@
 const User = require("../models/UserSchema")
 const jwt = require("jsonwebtoken")
 
-const login = (req,res) => {
-    res.status(200).json({"message":"login"})
+const login = async (req,res) => {
+    try{
+        const {email} = req.body
+        const user = await User.findOne({
+            email
+        })
+    }catch(err){
+        res.status(200).json({"message":err})
+    }
 }
 
 const signUp = async (req,res) => {
