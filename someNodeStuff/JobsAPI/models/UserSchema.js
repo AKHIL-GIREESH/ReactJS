@@ -17,4 +17,10 @@ const UserSchema = new mongoose.Schema({
     }
 })
 
+UserSchema.pre("save",async function(next){
+    const {password} = this.req.body
+    const salt = await bcrypt.genSalt(10)
+    const hashedPassword = await bcrypt.hash(this.password,salt)
+})
+
 module.exports = mongoose.model("User",UserSchema)
