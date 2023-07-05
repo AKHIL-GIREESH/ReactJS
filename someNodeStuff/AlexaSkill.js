@@ -22,11 +22,10 @@ class QnA {
         console.log(`${this.param1} ${this.operator} ${this.param2} = ${eval(this.param1+this.operator+this.param2)}`)
     }
     generateOptions(){
-        this.optionsArray.push(eval(this.param1+this.operator+this.param2))
         for(let i=0;i<3;i++){
             this.optionsArray.push(verifyOption(this.optionsArray))
         }
-        console.log(this.optionsArray)
+        this.optionsArray.splice(randomNumber(4),0,eval(this.param1+this.operator+this.param2)) && console.log(this.optionsArray)
     }
 }
 
