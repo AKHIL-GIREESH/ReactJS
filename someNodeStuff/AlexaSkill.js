@@ -1,5 +1,3 @@
-//Calculator
-
 const randomNumber = (max = 10, min = 0) => Math.floor(Math.random() * (max-min) + min)
 
 const verifyOption = (list) => {
@@ -31,5 +29,6 @@ class QnA {
 
 const newQ = new QnA()
 
+newQ.question()
 newQ.answer()
 newQ.generateOptions()
