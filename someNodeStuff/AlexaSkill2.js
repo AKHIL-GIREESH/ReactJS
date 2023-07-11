@@ -9,6 +9,18 @@ class findAnimal {
     optionsArray = []
     mocksArray = ["Cat","Apple","Orange","Chocolate","Elephant"]
     constructor(){
-        this.item = mocksArray[randomNumber(5)]
+        this.item = this.mocksArray[randomNumber(5)]
+        this.answer = this.item[randomNumber(this.item.length)]
+        this.notItem = this.item.replace(this.answer,"_")
+    }
+
+    printParams(){
+        console.log(this.item)
+        console.log(this.answer)
+        console.log(this.notItem)
     }
 }
+
+const quest = new findAnimal()
+
+quest.printParams()
