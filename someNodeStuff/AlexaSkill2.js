@@ -22,5 +22,4 @@ class findAnimal {
 }
 
 const quest = new findAnimal()
-
 quest.printParams()
