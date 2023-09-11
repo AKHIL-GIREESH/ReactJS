@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+//import App from './App';
 import reportWebVitals from './reportWebVitals';
 import * as THREE from "three"
 
@@ -11,7 +11,18 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
-console.log(scene,camera,renderer)
+
+
+const boxGeometry = new THREE.BoxGeometry(1,1,1)
+const material = new THREE.MeshBasicMaterial({ color : "#fff"})
+const mesh = new THREE.Mesh(boxGeometry,material)
+
+console.log(scene,camera,renderer,boxGeometry,material,mesh)
+
+scene.add(mesh)
+
+camera.position.z = 5
+renderer.render(scene,camera)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
