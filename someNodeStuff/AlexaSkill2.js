@@ -18,7 +18,7 @@ class findAnimal {
     constructor(){
         this.item = this.mocksArray[randomNumber(5)]
         this.answer = this.item[randomNumber(this.item.length)]
-        this.notItem = this.item.replace(this.answer,"_")
+        this.notItem = this.item.replace(this.answer,"_").split("").join(" ")
     }
 
     question(){
