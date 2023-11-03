@@ -2,17 +2,34 @@ const randomNumber = (max = 10, min = 0) => Math.floor(Math.random() * (max-min)
 
 const verifyOption = (list) => {
     let ran = randomNumber(100)
-    return ran in list? verifyOption(list) : ran
+    return ran in list? verifyOption(list): ran
 }
 
 class QnA {
-    operatorArray = ["+","-","*","/"]
+    operatorArray = ["+","-"]
     optionsArray = []
+    param2
     constructor(){
+        this.operator = this.operatorArray[randomNumber(2)]
         this.param1 = randomNumber()
-        this.param2 = randomNumber(this.param1)
-        this.operator = this.operatorArray[randomNumber(4)]
+        //this.param2 = 0
+        this.paramGenerator()
     }
+
+    paramGenerator(){
+        if(this.operator == "+"){
+            let temp = randomNumber()
+            //console.log(temp)
+            if(temp+this.param1 < 10){
+                this.param2 = temp
+            }else{
+                this.paramGenerator()
+            }
+        }else{
+            this.param2 = randomNumber(this.param1)
+        }
+    }
+
     question(){
         console.log(`What is ${this.param1} ${this.operator} ${this.param2}?`)
     }
