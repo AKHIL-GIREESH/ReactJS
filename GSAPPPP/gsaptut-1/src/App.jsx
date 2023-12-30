@@ -4,13 +4,42 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { useEffect,useRef,useState } from 'react'
-import globe from "../src/assets/globe.mp4"
+import globe from "../src/assets/globevid.mp4"
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
 gsap.registerPlugin(ScrollTrigger)
 
 function App() {
   const headingRef = useRef(null)
+  const videoRef = useRef(null)
+
+  // videoRef.current.pause()
+  // videoRef.current.currentTime = 0
+
+  useEffect(() => {
+    
+    let tl = gsap.timeline({
+      defaults: { duration: 5 },
+      scrollTrigger: {
+        trigger: "#container",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: true
+      }
+    }).fromTo(
+      videoRef.current,
+      {
+        currentTime: 0
+      },
+      {
+        currentTime: videoRef.current.duration || 1
+      }
+    );
+  },[])
+
+  // videoRef.current.onloadedmetadata = function () {
+  //   tl.to(videoRef.current, { currentTime: videoRef.current.duration });
+  // };
 //   const meshRef = useRef(null)
 
 //   useFrame((state, delta) => (meshRef.current.rotation.x += delta))
@@ -36,11 +65,11 @@ function App() {
 
   return (
     <>
-      {/* <div style={{width:"100vw",height:"100vh"}}></div>
-      <h1 ref={headingRef}>Hello World</h1>
+      {/* <div style={{width:"100vw",height:"100vh"}}></div> */}
+      {/* <h1 ref={headingRef}>Hello World</h1> */}
+      <video src={globe}  type="video/mp4" ref={videoRef} className="idk"></video>
+      <div style={{width:"100vw",height:"500vh"}} id="container"></div>
       
-      <div style={{width:"100vw",height:"100vh"}}></div> */}
-      <video src={globe} type="video/mp4"></video>
     </>
       )
     }
