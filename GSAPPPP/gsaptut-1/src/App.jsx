@@ -4,6 +4,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { useEffect,useRef,useState } from 'react'
+import globe from "../src/assets/globe.mp4"
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
 gsap.registerPlugin(ScrollTrigger)
@@ -29,15 +30,17 @@ function App() {
 //   )
 // }
 
-  useEffect(() => {
-    gsap.fromTo(headingRef.current,{opacity:0},{opacity:1,duration:5,scrollTrigger:{trigger:headingRef.current,toggleActions:"restart none reverse none"}})
-  },[])
+  // useEffect(() => {
+  //   gsap.fromTo(headingRef.current,{opacity:0},{opacity:1,duration:5,scrollTrigger:{trigger:headingRef.current,toggleActions:"restart none reverse none"}})
+  // },[])
 
   return (
     <>
-      <div style={{width:"100vw",height:"100vh"}}></div>
+      {/* <div style={{width:"100vw",height:"100vh"}}></div>
       <h1 ref={headingRef}>Hello World</h1>
-      <div style={{width:"100vw",height:"100vh"}}></div>
+      
+      <div style={{width:"100vw",height:"100vh"}}></div> */}
+      <video src={globe} type="video/mp4"></video>
     </>
       )
     }
