@@ -16,26 +16,26 @@ function App() {
   // videoRef.current.pause()
   // videoRef.current.currentTime = 0
 
-  useEffect(() => {
+  // useEffect(() => {
     
-    let tl = gsap.timeline({
-      defaults: { duration: 5 },
-      scrollTrigger: {
-        trigger: "#container",
-        start: "top top",
-        end: "bottom bottom",
-        scrub: true
-      }
-    }).fromTo(
-      videoRef.current,
-      {
-        currentTime: 0
-      },
-      {
-        currentTime: videoRef.current.duration || 1
-      }
-    );
-  },[])
+  //   let tl = gsap.timeline({
+  //     defaults: { duration: 60 },
+  //     scrollTrigger: {
+  //       trigger: "#container",
+  //       start: "top top",
+  //       end: "bottom bottom",
+  //       scrub: true
+  //     }
+  //   }).fromTo(
+  //     ".idk",
+  //     {
+  //       currentTime: 0
+  //     },
+  //     {
+  //       currentTime: videoRef.current.duration || 3
+  //     }
+  //   );
+  // },[])
 
   // videoRef.current.onloadedmetadata = function () {
   //   tl.to(videoRef.current, { currentTime: videoRef.current.duration });
@@ -67,7 +67,7 @@ function App() {
     <>
       {/* <div style={{width:"100vw",height:"100vh"}}></div> */}
       {/* <h1 ref={headingRef}>Hello World</h1> */}
-      <video src={globe}  type="video/mp4" ref={videoRef} className="idk"></video>
+      <video autoPlay muted loop src={globe}  type="video/mp4" ref={videoRef} className="idk"></video>
       <div style={{width:"100vw",height:"500vh"}} id="container"></div>
       
     </>
