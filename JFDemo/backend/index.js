@@ -11,9 +11,19 @@ const authenticate = (req,res,next) => {
 }
 
 app.use(authenticate)
+app.use(express.json())
 
 app.get("/",(req,res) => {
     res.status(200).send("<h1>Hello</h1>")
+})
+
+app.post("/post",(req,res) => {
+    const {name} = req.body
+    if(name === "john"){
+        res.status(200).send(`<h1>Hello ${name}</h1>`)
+    }else{
+        res.send("Something went wraaang")
+    }
 })
 
 app.all("*",(req,res) => {
