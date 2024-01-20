@@ -1,3 +1,8 @@
 const mongoose = require("mongoose")
 
-mongoose.connect()
+const DBConnect = (url) => {
+    return mongoose.connect(url)
+}
+
+
+module.exports = DBConnect
