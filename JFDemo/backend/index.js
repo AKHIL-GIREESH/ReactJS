@@ -29,7 +29,7 @@ app.post("/post",(req,res) => {
 })
 
 app.all("*",(req,res) => {
-    res.status(404).send("<h1>404</h1>")
+    res.status(404).send("<h1>404 Page not Found</h1>")
 })
 
 const start = () => {
