@@ -61,7 +61,8 @@ body{
   z-index:-1;
   background-color: palegreen;
   top:0;
-  position:sticky
+  position:sticky;
+  overflow: hidden;
   /* opacity: 50%; */
 }
 
