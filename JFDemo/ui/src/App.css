@@ -1,4 +1,4 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -39,4 +39,33 @@
 
 .read-the-docs {
   color: #888;
+} */
+body{
+  margin: 0;
+  padding: 0;
+}
+
+.top-layer,.bottom-layer{
+  width: 100vw;
+  height: 100vh;
+}
+
+.bottom-layer div{
+  width: 100vw;
+  height: 200vh;
+  border: 1px solid black;
+}
+
+.top-layer{
+  position: absolute;
+  z-index:2;
+  background-color: palegreen;
+  /* opacity: 50%; */
+}
+
+.bottom-layer{
+  position: relative;
+  z-index: -1;
+  background-color: bisque;
+  overflow: scroll;
 }
