@@ -51,8 +51,9 @@ body{
 }
 
 .bottom-layer div{
+  text-align: center;
   width: 100vw;
-  height: 200vh;
+  height: 100vh;
   border: 1px solid black;
 }
 
@@ -66,6 +67,6 @@ body{
 
 .bottom-layer{
   z-index: 2;
-  background-color: bisque;
+  /* background-color: bisque; */
   overflow: scroll;
 }
