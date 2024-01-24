@@ -57,15 +57,15 @@ body{
 }
 
 .top-layer{
-  position: absolute;
-  z-index:2;
+  z-index:-1;
   background-color: palegreen;
+  top:0;
+  position:sticky
   /* opacity: 50%; */
 }
 
 .bottom-layer{
-  position: relative;
-  z-index: -1;
+  z-index: 2;
   background-color: bisque;
   overflow: scroll;
 }

@@ -12,12 +12,15 @@ function App() {
   
   return(
     <>
-      <div>
+      <div className='top-layer'>
         <h1>Page 1</h1>
         <img></img>
       </div>
-      <div>
+      <div className='bottom-layer'>
         <h1>Page 2</h1>
+      </div>
+      <div className='bottom-layer'>
+        <h1>Page 3</h1>
       </div>
     </>
   )
