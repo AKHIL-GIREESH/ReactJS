@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom"
+
 const Sidebar = () => {
 
     let mocks = [
@@ -10,11 +12,12 @@ const Sidebar = () => {
 
     return(
         <div className="Sidebar">
-            {mocks.map(item => {
+            {mocks.map(item => 
                 <div>
                     {item}
+                    <hr/>
                 </div>
-            })}
+            )}
         </div>
     )
 }
