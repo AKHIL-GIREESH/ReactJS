@@ -12,7 +12,9 @@ const Sidebar = () => {
         <div className="Sidebar">
             {mocks.map(item => 
                 <div>
-                    {item}
+                    <Link to={`/${item[0]+item[1]}`}>
+                        {item}
+                    </Link>
                     <hr/>
                 </div>
             )}
