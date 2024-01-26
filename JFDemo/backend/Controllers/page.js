@@ -1,3 +1,5 @@
+const JF = require("../Models/Schema")
+
 const GetAllPages = (req,res) => {
     res.status(200).send("Fetched all of em")
 }
