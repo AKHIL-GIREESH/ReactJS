@@ -27,7 +27,7 @@ function App() {
         <Route path="/login" element={<Login/>}/>
         <Route path="/">
           {/* <Sidebar/> */}
-          <Route index element={<Page data={mocks[0]}/>}/>
+          <Route index element={<Page data={`${new Date().getDate()} Jan`}/>}/>
           {mocks.map(item => <Route path={`/${item[0]+item[1]}`} element={<Page data={item}/>}/>)}
         </Route>
         <Route path="/settings" element={<Settings/>}/>
