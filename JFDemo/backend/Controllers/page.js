@@ -1,22 +1,53 @@
-const JF = require("../Models/Schema")
+const JFDriver = require("../Models/Schema")
 
-const GetAllPages = (req,res) => {
-    res.status(200).send("Fetched all of em")
+const GetAllPages = async (req,res) => {
+    try{
+        let Pages = await JFDriver.find({})
+        res.status(200).json({Pages})
+    }catch(err){
+        console.log(err)
+    }
+    //res.status(200).send("Fetched all of em")
 }
 
-const GetAPage = (req,res) => {
-    res.status(200).send("Fetched one of em")
+const GetAPage = async (req,res) => {
+    try{
+        let Page = await JFDriver.findOne({_id: req.params.id})
+        res.status(200).json({Page})
+    }catch(err){
+        console.log(err)
+    }
+    
 }
 
-const CreatePage = (req,res) => {
-    res.status(200).json(req.body)
+const CreatePage =async (req,res) => {
+    try{
+        let newPage = await JFDriver.create(req.body)
+        res.status(200).json({newPage})
+    }catch(err){
+        console.log(err)
+    }
 }
 
-const UpdatePage = (req,res) => {
-    res.status(200).json({page:req.params.id})
+const UpdatePage = async (req,res) => {
+    try{
+        let newPage = await JFDriver.findOneAndUpdate(
+            {_id:req.params.id},
+            req.body,
+            {new:true,runValidators:true})
+        res.status(200).json({newPage})
+    }catch(err){
+        console.log(err)
+    }
 }
 
-const RemovePage = (req,res) => {
+const RemovePage = async (req,res) => {
+    try{
+        let deletedpage = await JFDriver.deleteOne({_id:req.params.id})
+        res.status(200).json({deletedpage})
+    }catch(err){
+        console.log(err)
+    }
     res.status(200).send("Deletion")
 }
 
