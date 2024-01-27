@@ -93,7 +93,7 @@ function App() {
     <>
       <Routes>
         <Route path="/login" element={<Login/>}/>
-        <Route path="/" element={<PageWrapper/>}>
+        <Route path="/" element={<PageWrapper data = {mocks}/>}>
           
           {New?<Route index element={<Page {...data}/>}/>:<Route index element={<Page {...mocks[0]}/>}/>}
           {mocks.map(item => <Route path={`/${item._id}`} element={<Page {...item}/>}/>)}

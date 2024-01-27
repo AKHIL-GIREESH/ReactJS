@@ -1,5 +1,5 @@
 const Page = ({date,content}) => {
-    console.log()
+    console.log("Page")
     return(
         <div>
             {date}<br/>

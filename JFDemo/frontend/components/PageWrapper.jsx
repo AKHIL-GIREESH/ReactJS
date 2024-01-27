@@ -1,12 +1,12 @@
 import { Outlet } from "react-router"
 import Sidebar from "./sidebar"
 
-const PageWrapper = () => {
+const PageWrapper = (props) => {
     return(
-        <>
-            <Sidebar/>
+        <div style={{display:"flex"}}>
+            <Sidebar data = {props.data} />
             <Outlet/>
-        </>
+        </div>
     )
 }
 
