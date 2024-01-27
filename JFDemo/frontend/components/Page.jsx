@@ -1,15 +1,11 @@
-import Sidebar from "./navbar"
-
-const Page = ({data}) => {
+const Page = ({date,content}) => {
+    console.log()
     return(
-    <div style={{display:"flex"}}>
-        <Sidebar/>
         <div>
-            {data}<br/>
+            {date}<br/>
             <br/><br/>
-            <textarea></textarea>
+            <textarea value={content}></textarea>
         </div>
-    </div>
 )}
 
 export default Page
