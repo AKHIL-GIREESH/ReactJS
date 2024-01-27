@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Sidebar from '../components/navbar'
 import './App.css'
 import Login from '../components/Login'
@@ -7,11 +7,11 @@ import Page from '../components/Page'
 import { Route,Routes } from 'react-router'
 
 function App() {
-  const [data, setData] = useState({})
+  const [data, setData] = useState(false)
 
 
-  let date = new Date().getDate()
-  console.log(date)
+  let daTe = new Date().getDate()
+  console.log("Date in React : ",daTe)
 
   let mocks = [
     "25 Jan",
@@ -20,6 +20,15 @@ function App() {
     "22 Jan",
     "21 Jan"
   ]
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/v1/page",{ mode: 'cors' })
+    .then(resp => resp.json())
+    .then(data => setData(data.Pages))
+    .catch(err => console.log(err))
+  },[])
+
+  console.log(data && data[0].date === daTe)
 
   return (
     <>

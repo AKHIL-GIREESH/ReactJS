@@ -3,6 +3,9 @@ const app = express()
 require("dotenv").config()
 const DBConnect = require("./DB/connectDB")
 const PageRouter = require("./Routes/page")
+const cors = require("cors")
+
+app.use(cors())
 
 // const authenticate = (req,res,next) => {
 //     let {name} = req.query

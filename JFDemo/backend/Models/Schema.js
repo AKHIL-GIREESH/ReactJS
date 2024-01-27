@@ -3,7 +3,7 @@ const mongoose = require("mongoose")
 const JournalTestSchema = new mongoose.Schema({
     date:{
         type:Date,
-        default: new Date()
+        default: new Date().getFullYear()
     },
     content:{
         type:String,

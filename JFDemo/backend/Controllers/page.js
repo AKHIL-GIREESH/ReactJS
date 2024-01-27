@@ -12,7 +12,7 @@ const GetAllPages = async (req,res) => {
 
 const GetAPage = async (req,res) => {
     try{
-        let Page = await JFDriver.findOne({_id: req.params.id})
+        let Page = await JFDriver.findOne({date: req.params.id})
         res.status(200).json({Page})
     }catch(err){
         console.log(err)
@@ -32,7 +32,7 @@ const CreatePage =async (req,res) => {
 const UpdatePage = async (req,res) => {
     try{
         let newPage = await JFDriver.findOneAndUpdate(
-            {_id:req.params.id},
+            {date:req.params.id},
             req.body,
             {new:true,runValidators:true})
         res.status(200).json({newPage})
@@ -43,7 +43,7 @@ const UpdatePage = async (req,res) => {
 
 const RemovePage = async (req,res) => {
     try{
-        let deletedpage = await JFDriver.deleteOne({_id:req.params.id})
+        let deletedpage = await JFDriver.deleteOne({date:req.params.id})
         res.status(200).json({deletedpage})
     }catch(err){
         console.log(err)
