@@ -1,5 +1,4 @@
 const mongoose = require("mongoose")
-const { use } = require("../routes/main")
 
 const userSchema = new mongoose.Schema({
     name:{
