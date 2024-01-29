@@ -11,8 +11,16 @@ const signUp = async (req,res) => {
     res.status(200).json({Status:"Success",token:token});
 }
 
-const login = (req,res) => {
-    
+const login = async (req,res) => {
+    const {username,password} = req.body
+    const user = await userModel.findOne({username})
+    if(user){
+        const passwordValid = await user.comparePassword(password)
+        if(passwordValid){
+            const token = jwt.sign({username},process.env.JWT_SECRET,{expiresIn:'30d'})
+            res.status(200).json({Status:"Success",token:token});
+        }
+    }
 }
 
 const dashboard = (req,res) => {

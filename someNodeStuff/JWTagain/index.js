@@ -14,11 +14,11 @@ app.get("/",(req,res) => {
 
 
 
-app.listen(process.env.PORT,() => console.log("Server is up and running"))
-// const server = () => {
-//     dbConnect(process.env.MONGOURL)
-//     .then(() => app.listen(process.env.PORT,() => console.log("Server is up and running")))
-//     .catch(() => console.log("Something went wrong"))
-// }
+//app.listen(process.env.PORT,() => console.log("Server is up and running"))
+const server = () => {
+    dbConnect(process.env.MONGOURL)
+    .then(() => app.listen(process.env.PORT,() => console.log("Server is up and running")))
+    .catch((err) => console.log(err))
+}
 
-// server()
+server()
