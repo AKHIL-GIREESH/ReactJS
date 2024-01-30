@@ -1,7 +1,7 @@
 const appModel = require("../models/applicationModel")
 
 const getAllTasks = (req,res) => {
-    // console.log(req)
+    //console.log(req.params)
     res.status(200).json({status:"works"})
 }
 
