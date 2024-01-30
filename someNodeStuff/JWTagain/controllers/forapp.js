@@ -9,8 +9,14 @@ const getTask = (req,res) => {
     res.status(200).status("Works!")
 }
 
-const createTask = (req,res) => {
-    res.status(200).status("Works!")
+const createTask = async (req,res) => {
+    try{
+        req.body.createdBy = req.user.user_ID
+        const task = await appModel.create(req.body)
+        res.status(200).json({task})
+    }catch(err){
+        console.log(err)
+    }
 }
 
 const updateTask = (req,res) => {
