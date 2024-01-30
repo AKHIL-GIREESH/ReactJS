@@ -1,12 +1,21 @@
 const appModel = require("../models/applicationModel")
 
-const getAllTasks = (req,res) => {
-    //console.log(req.params)
-    res.status(200).json({status:"works"})
+const getAllTasks = async (req,res) => {
+    try{
+        const task = await appModel.find({createdBy:req.user.user_ID})
+        res.status(200).json({task})
+    }catch(err){
+        console.log(err)
+    }
 }
 
-const getTask = (req,res) => {
-    res.status(200).status("Works!")
+const getTask = async (req,res) => {
+    try{
+        const task = await appModel.findOne({_id:req.params.id,createdBy:req.user.user_ID})
+        res.status(200).json({task})
+    }catch(err){
+        console.log(err)
+    }
 }
 
 const createTask = async (req,res) => {
@@ -19,12 +28,22 @@ const createTask = async (req,res) => {
     }
 }
 
-const updateTask = (req,res) => {
-    res.status(200).status("Works!")
+const updateTask = async (req,res) => {
+    try{
+        const task = await appModel.findOneAndUpdate({_id:req.params.id,createdBy:req.user.user_ID},req.body,{ new: true, runValidators: true })
+        res.status(200).json({task})
+    }catch(err){
+        console.log(err)
+    }
 }
 
-const deleteTask = (req,res) => {
-    res.status(200).status("Works!")
+const deleteTask = async (req,res) => {
+    try{
+        const task = await appModel.deleteOne({_id:req.params.id,createdBy:req.user.user_ID})
+        res.status(200).json({task})
+    }catch(err){
+        console.log(err)
+    }
 }
 
 module.exports = {getAllTasks,getTask,createTask,updateTask,deleteTask}
