@@ -14,7 +14,12 @@ const appSchema = new mongoose.Schema({
         required:true,
         minlength:3
     },
-    createdBy:{
-        
+    createdBy: {
+        type: mongoose.Types.ObjectId,
+        ref: 'authuser',
+        required: [true, 'Please provide user'],
     }
-})
+},{timestamps:true}
+)
+
+module.exports = mongoose.model('appSide',appSchema)
