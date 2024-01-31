@@ -7,3 +7,11 @@ export async function POST(request){
     console.log(req)
     return Response.json({status:"Success",body:req})
 }
+
+export async function PATCH(request){
+    let req = await request.json()
+    console.log(req)
+    return Response.json(req)
+}
+
+//export 
