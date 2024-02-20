@@ -1,3 +1,5 @@
+import { memo } from "react"
+
 const Search = ({onChange}) => {
     console.log("Search")
     return (
@@ -5,4 +7,4 @@ const Search = ({onChange}) => {
     )
 }
 
-export default Search
+export default memo(Search)

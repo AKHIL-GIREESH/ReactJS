@@ -1,6 +1,7 @@
 import { useState, } from 'react'
 import './App.css'
 import Search from './Search.jsx'
+import TextUI from './textUIMemo'
 
 function App() {
   
@@ -19,7 +20,8 @@ function App() {
       {counter}<br/>
       <button onClick={() => setCounter(prev => prev+1)}>INCREMENT</button><br/>
       <Search onChange={handleChange}/><br/>
-      {data}
+      {data}<br/>
+      <TextUI/>
     </>
   )
 }
