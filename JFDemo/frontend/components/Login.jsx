@@ -1,7 +1,8 @@
 const Login = () => {
     return(
         <>
-            Login
+             <input type="text" placeholder="Name"></input>
+             <input type="text" placeholder="Password"></input>
         </>
     )
 }

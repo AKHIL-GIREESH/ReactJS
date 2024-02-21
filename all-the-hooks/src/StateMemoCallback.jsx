@@ -3,7 +3,7 @@ import './App.css'
 import Search from './Search.jsx'
 import TextUI from './textUIMemo'
 
-function App() {
+function StateMemoCallBack() {
   
   let names = ["Alice", "Bob", "Charlie", "David", "Emma", "Frank", "Jack"]
 
@@ -16,7 +16,7 @@ function App() {
 
   return (
     <>
-      <h1>ALL THE HOOKS</h1><br/>
+      <h1>useState, useCallback and Memo</h1><br/>
       {counter}<br/>
       <button onClick={() => setCounter(prev => prev+1)}>INCREMENT</button><br/>
       <Search onChange={handleChange}/><br/>
@@ -26,4 +26,4 @@ function App() {
   )
 }
 
-export default App
+export default StateMemoCallBack
