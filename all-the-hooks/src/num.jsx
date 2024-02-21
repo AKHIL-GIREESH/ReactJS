@@ -1,12 +1,12 @@
 import Prev from "./prev"
 import Next from "./next"
 
-const Num= ({num}) => {
+const Num= () => {
     
     return(
         <>
-            <Prev num={num}/>
-            <Next num={num}/>
+            <Prev/>
+            <Next/>
         </>
     )
 }
