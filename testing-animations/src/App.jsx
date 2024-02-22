@@ -23,7 +23,6 @@ function App() {
 
         // Create a SplitType instance (replace with your implementation)
         const text = new SplitType(char,{types:'chars'})//new SplitType(char, { types: 'chars' });
-
         // Animate color change using GSAP
         gsap.fromTo(
             text.chars,
@@ -39,7 +38,7 @@ function App() {
                     start: 'top 80%',
                     end: 'top 20%',
                     scrub: true,
-                    markers: false,
+                    markers: true,
                     toggleActions: 'play play reverse reverse',
                 },
             }
