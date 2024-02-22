@@ -28,16 +28,19 @@ function App() {
             text.chars,
             {
                 color: bg,
+                y:100
             },
             {
                 color: fg,
-                duration: 0.3,
-                stagger: 0.02,
+                duration: 1,
+                stagger: 0.08,
+                y:20,
+                ease:"back.out",
                 scrollTrigger: {
                     trigger: char,
                     start: 'top 80%',
-                    end: 'top 20%',
-                    scrub: true,
+                    end: 'top 50%',
+                    // scrub: true,
                     markers: true,
                     toggleActions: 'play play reverse reverse',
                 },
@@ -55,7 +58,7 @@ function App() {
       </section>
 
       <section>
-          <p class="reveal-type" data-bg-color="#cccccc" data-fg-color="teal">Systematically ushering in a new generation of amazing designers from across the globe.</p>
+          <p class="reveal-type" style={{fontWeight:600,fontSize:"80px"}} data-bg-color="red" data-fg-color="red">ABOUT TEDx</p>
       </section>
 
       <section>
