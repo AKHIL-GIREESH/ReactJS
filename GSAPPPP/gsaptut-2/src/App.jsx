@@ -20,30 +20,54 @@ const App = () => {
           scrollTrigger: {
               trigger: '.hero',
               start: 'top 60%',
-              end: 'top 20%',
+              end: 'top 40%',
               scrub: true,
-              markers: true,
+              // markers: true,
               toggleActions: 'reverse none none none',
           },
       }
   );
-  tlm1.to('.hero',{
+  tlm1.fromTo('.hero',{
+    scale:3,
+  },{
         backgroundColor:"red",
+        transform:"rotate(0deg)",
+        scale:2.5,
         scrollTrigger: {
           trigger: '.hero',
-          start: 'top 20%',
+          start: 'top 40%',
           end: 'top 10%',
           scrub: true,
-          markers: true,
+          // markers: true,
           toggleActions: 'reverse none none none',
       }
+  })
+
+  gsap.fromTo('.notHero',{
+    backgroundColor: "rgba(10, 255, 10, 0)",
+    scale:0.5,
+    transform:"rotate(30deg)"
+  },{
+    backgroundColor: "rgba(10, 255, 10, 1)",
+    scale:1,
+    transform:"rotate(0deg)",
+    scrollTrigger: {
+      trigger: '.hero',
+      start: 'top 40%',
+      end: 'top 10%',
+      scrub: true,
+      // markers: true,
+      toggleActions: 'reverse none none none',
+  }
   })
   },[])
   return(
     <>
       <h1>App</h1>
-      <div className="notHero" style={{height:"200vh", width:"100vw",backgroundColor:"black",display:"flex",justifyContent:"center",alignItems:"center"}}>
-      <div className="hero" style={{height:"10vh", width:"10vh",backgroundColor:"white",zIndex:2,position:"sticky",top:"50vh"}}></div>
+      <div style={{height:"200vh", width:"100vw",backgroundColor:"black",display:"flex",justifyContent:"center",alignItems:"center"}}>
+        <div className="notHero" style={{height:"60vh", width:"60vw",backgroundColor:"green",display:"flex",justifyContent:"center",alignItems:"center",position:"sticky",top:"20vh"}}>
+          <div className="hero" style={{height:"10vh", width:"10vh",backgroundColor:"white",zIndex:2,transform:"rotate(-30deg)"}}></div>
+        </div>
       </div>
     </>
   )
