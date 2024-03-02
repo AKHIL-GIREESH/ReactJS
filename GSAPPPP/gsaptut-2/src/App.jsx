@@ -19,10 +19,10 @@ const App = () => {
           // duration: 0.3,
           scrollTrigger: {
               trigger: '.hero',
-              start: 'top 60%',
+              start: 'top 80%',
               end: 'top 40%',
               scrub: true,
-              // markers: true,
+              markers: true,
               toggleActions: 'reverse none none none',
           },
       }
@@ -38,7 +38,7 @@ const App = () => {
           start: 'top 40%',
           end: 'top 10%',
           scrub: true,
-          // markers: true,
+          markers: true,
           toggleActions: 'reverse none none none',
       }
   })
@@ -56,7 +56,7 @@ const App = () => {
       start: 'top 40%',
       end: 'top 10%',
       scrub: true,
-      // markers: true,
+      markers: true,
       toggleActions: 'reverse none none none',
   }
   })
@@ -65,7 +65,7 @@ const App = () => {
     <>
       <h1>App</h1>
       <div style={{height:"200vh", width:"100vw",backgroundColor:"black",display:"flex",justifyContent:"center",alignItems:"center"}}>
-        <div className="notHero" style={{height:"60vh", width:"60vw",backgroundColor:"green",display:"flex",justifyContent:"center",alignItems:"center",position:"sticky",top:"20vh"}}>
+        <div className="notHero" style={{height:"100vh", width:"100vw",backgroundColor:"green",display:"flex",justifyContent:"center",alignItems:"center",position:"sticky",top:"0vh"}}>
           <div className="hero" style={{height:"10vh", width:"10vh",backgroundColor:"white",zIndex:2,transform:"rotate(-30deg)"}}></div>
         </div>
       </div>
@@ -73,4 +73,4 @@ const App = () => {
   )
 }
 
-export default App
+export default App 
