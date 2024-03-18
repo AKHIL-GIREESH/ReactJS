@@ -63,6 +63,11 @@ function App() {
     isSingle: boolean 
   }
 
+  //Array
+  const fruits: Array<string> = []
+  const users: Array<User> = []
+
+
   return (
     <>
     </>
