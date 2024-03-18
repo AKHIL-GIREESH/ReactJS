@@ -5,7 +5,7 @@ function App() {
   console.log(user)
 
 
-  //Function Method 1
+  //Functions
   //Ex1
   const increTwo = (val: number, isPassed: boolean = true): number => { //Checks 
     return isPassed ? val+2 : -1
@@ -17,12 +17,21 @@ function App() {
   colours = colours.map((colour):string => {
     return "Primary colour "+colour
   })
-
   console.log(colours)
 
-  //Function Method 2
+  //Objects
 
+  const objSalary = (): {
+    name: string,
+    salary: number
+  } => {
+    return {
+      name:"idk",
+      salary: 0
+    }
+  }
 
+  objSalary()
 
   return (
     <>
