@@ -1,7 +1,4 @@
-import './App.css'
-
-function App() {
-  const word: string = "Hello World" //In this case, need not add the type as we are directly initialising the variable and TS can automatically detect the type unlike JS and hence not overusing TS.
+const word: string = "Hello World" //In this case, need not add the type as we are directly initialising the variable and TS can automatically detect the type unlike JS and hence not overusing TS.
   console.log(word)
 
 
@@ -69,12 +66,3 @@ function App() {
   //Union
   const _user: User | User2 = {_id:"123",name:"John Doe 2",age:100}
   const data1: (string | number)[] = ["1",2]
-
-
-  return (
-    <>
-    </>
-  )
-}
-
-export default App
