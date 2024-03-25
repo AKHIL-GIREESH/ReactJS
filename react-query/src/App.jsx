@@ -27,7 +27,7 @@ function App() {
   return (
     <>
       <h1>Hello</h1>
-      <button onClick={() => signUp.mutate()}>Click</button>
+      <button onClick={() => signUp.mutate}>Click</button>
     </>
   );
 }
