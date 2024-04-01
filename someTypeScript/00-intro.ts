@@ -76,5 +76,41 @@ type TupleCheck = [number,string,boolean]
 
 const tup1 : TupleCheck = [1,"2",false] // must be entered in the order
 
-//Flaw
+//Flaw ( Tuple )
 //https://stackoverflow.com/questions/64069552/typescript-array-push-method-cant-catch-a-tuple-type-of-the-array
+
+//Interfaces
+interface OBJ {
+    x1:number
+    x2:number
+    xFunc:() => string
+    xFuncNew(param1:number,param2:string):string
+}
+
+interface OBJNew extends OBJ{
+    x3:number
+}
+
+//Classes
+
+class Eg1{
+    email:string
+    name:string
+    constructor(email : string,name : string){
+        this.email = email
+        this.name = name
+    }
+}
+
+const eg1Instance = new Eg1("","")
+
+//Same Above code with some Syntatic Sugar ( Produces the same JS code )
+
+class _Eg1{
+    constructor(
+        public email:string,
+        public name:string
+    ){
+
+    }
+}
