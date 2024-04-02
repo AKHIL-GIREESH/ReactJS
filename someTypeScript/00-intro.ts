@@ -114,3 +114,49 @@ class _Eg1{
 
     }
 }
+
+//Usual stuff like getters-setters(cannot set return type for setters), interfaces, abstract classes
+
+//Generics - used when u wonna return the same datatype of the input
+
+const arr1 = <T>(val :T):T => {
+    return val
+}
+
+const arr2 = <T,>(val :T[]):T => {  //Often put , after T just to indicate that it is not a jsx syntax rather generics.
+    return val[0]                   //Since its T[], we could use array operations inside the function on val
+}
+
+
+//Eg of extends in Generics
+
+interface DB{
+    connectionString:string
+    username:string
+    password:string
+}
+
+const usingExtends = <T,U extends DB>(val1:T,val2:U) => {
+
+}
+
+//Generics in Class
+
+interface quiz{
+    noOfQuestions : number
+    domain: string
+}
+
+interface course{
+    creator:string
+    amount:number
+    domain:string
+}
+
+class Cart<T>{
+    cart: T[] = []
+
+    addToCart<T>(item:T){
+        this.cart.push(item)
+    }
+}
