@@ -11,7 +11,7 @@ console.log(increTwo(2))
 
 //Ex2
 let colours = ["red","green","blue"]
-colours = colours.map((colour):string => {
+colours = colours.map((colour : string):string => {
 return "Primary colour "+colour
 })
 console.log(colours)
@@ -154,9 +154,9 @@ interface course{
 }
 
 class Cart<T>{
-    cart: T[] = []
+    cart: Array<T> = []
 
-    addToCart<T>(item:T){
+    addToCart(item:T):void{
         this.cart.push(item)
     }
 }
