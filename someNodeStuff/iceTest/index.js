@@ -1,7 +1,9 @@
 const express = require("express");
+const cors = require("cors");
 const { google } = require("googleapis");
 require("dotenv").config();
 const app = express();
+app.use(cors());
 
 app.get("/", async (req, res) => {
   //   res.send("Hello");
