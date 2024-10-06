@@ -1,20 +1,63 @@
-import { io } from 'socket.io-client'
-import './App.css'
-import { useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import io, { Socket } from 'socket.io-client';
 
-function App() {
+// interface ChatRoomProps {
+//   streamId: string;
+// }
 
-  const socket = io("http://localhost:3002/")
-  console.log(socket)
-
-  useEffect(() => {
-    socket.on("connect",() => console.log("connected",socket.id))
-  },[])
-  return (
-    <>
-      Frontend
-    </>
-  )
+interface Message {
+  roomId: string;
+  message: string;
 }
 
-export default App
+const App = () => {
+  const [socket, setSocket] = useState<Socket | null>(null);
+  const [message, setMessage] = useState<string>('');
+  const [messages, setMessages] = useState<string[]>([]);
+  const streamId = "1234"
+  useEffect(() => {
+    // Initialize the socket connection
+    const newSocket = io('http://localhost:3002');
+    setSocket(newSocket);
+
+    // Join the chat room for the current stream
+    newSocket.emit('joinRoom', streamId);
+
+    // Listen for incoming messages
+    newSocket.on('message', (message: string) => {
+      setMessages((prevMessages) => [...prevMessages, message]);
+    });
+
+    return () => {
+      // Close the socket connection when component unmounts
+      newSocket.close();
+    };
+  }, [streamId]);
+
+  const sendMessage = () => {
+    if (socket && message.trim()) {
+      const msgPayload: Message = { roomId: streamId, message };
+      socket.emit('chatMessage', msgPayload);
+      setMessage(''); // Clear the input after sending
+    }
+  };
+
+  return (
+    <div>
+      <div className="chat-window">
+        {messages.map((msg, idx) => (
+          <div key={idx}>{msg}</div>
+        ))}
+      </div>
+      <input
+        type="text"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        placeholder="Type your message..."
+      />
+      <button onClick={sendMessage}>Send</button>
+    </div>
+  );
+};
+
+export default App;
