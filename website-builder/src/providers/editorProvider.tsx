@@ -1,12 +1,18 @@
 import React, { createContext, useState } from "react";
+import { editorContextType } from "../types/editor";
 
-const EditorContext = createContext<{editorState:Number[]setEditorState:(Number[]) => void}>([])
-
+export const EditorContext = createContext<editorContextType | null >(null)
 
 const EditorProvider = ({children}:React.PropsWithChildren) => {
-    const [editorState,setEditorState] = useState([])
+    const [editorState,setEditorState] = useState<Number[]>([])
+
     return(
-    <EditorContext.Provider value={editorState,setEditorState}>
+    <EditorContext.Provider value={{
+        state:editorState,
+        update:setEditorState
+    }}>
         {children}
     </EditorContext.Provider>)
 }
+
+export default EditorProvider

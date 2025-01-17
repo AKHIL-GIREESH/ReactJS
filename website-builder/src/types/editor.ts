@@ -1,5 +1,10 @@
 import React from "react"
 
+export type editorContextType = {
+    state: Number[],
+    update: (val: Number[]) => void
+}
+
 export type EditorBtns = 'text'
     | 'container'
     | 'section'
