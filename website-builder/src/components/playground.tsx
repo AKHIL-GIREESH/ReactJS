@@ -13,10 +13,21 @@ const Playground = () => {
 
 
     const [card, setCard] = useState<null | card>(null)
-    const [cards,setCards] = useState<null | card[]>([{index:1,side:1},{index:2,side:1},{index:3,side:1},{index:4,side:2},{index:5,side:2},{index:6,side:2}])
+    const [cards,setCards] = useState<card[]>([{index:1,side:1},{index:2,side:1},{index:3,side:1},{index:4,side:2},{index:5,side:2},{index:6,side:2}])
 
-    const onDRag = (val:card) => {
-        console.log(val.index,val.side)
+    const onDRag = ({index,side}:card) => {
+        console.log(index,side)
+        if(card){
+            const newCards = cards.filter(({index,side}) => index !== card.index)
+            newCards.splice(index,0,{
+                ...card,
+                side:side
+            })
+
+            setCards(newCards)
+        }
+        
+
     }
 
     return(
