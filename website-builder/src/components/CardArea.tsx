@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { card } from "./playground"
+import { card } from "./CardDragnDrop"
 
 type Props = {
     index: number

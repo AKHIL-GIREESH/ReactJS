@@ -1,5 +1,5 @@
 import CardArea from "./CardArea"
-import { card } from "./playground"
+import { card } from "./CardDragnDrop"
 
 type Props = {
     index: number
@@ -11,8 +11,8 @@ type Props = {
 const CardTemp = ({index,side,setCard,onDRag}: Props) => {
   return (
     <>
-        <div draggable style={{backgroundColor:"white",height:"50px",width:"50px",marginBottom:"10px"}} onDragStart={() => setCard({index:index,side:side})} onDragEnd={() => setCard(null)}>{""+index}</div>
-        <CardArea index={index+1} side={side} onDRag={onDRag}/>
+        <div draggable style={{backgroundColor:"white",height:"50px",width:"50px",marginBottom:"10px",color:"black"}} onDragStart={() => setCard({index:index,side:side})} onDragEnd={() => setCard(null)}>{""+index}</div>
+        <CardArea index={index} side={side} onDRag={onDRag}/>
     </>
   )
 }
