@@ -6,7 +6,7 @@ const Playground = () => {
     console.log(editorState?.state)
     return(
         <div style={{width:"80vw",height:"100vh"}}>
-
+            
         </div>
     )
 }
