@@ -1,32 +1,32 @@
 //type Props = {}
-
 import { EditorContainerType, EditorElementType } from "../../types/editor"
 import Component from "./Component"
 import Elem from "./Elem"
 
 const website:EditorContainerType = {
-  styles : {border:"1px solid",minHeight:"200px",width:"200px",maxHeight:"fit-content"},
+  styles : {border:"1px solid red",minHeight:"200px",width:"200px",height:"fit-content"},
   kind:"Container",
   contents : [{
     styles: {border:"1px solid"},
     kind:"Elem",
     contents: "works"
   },{
-    styles : {border:"1px solid",minHeight:"200px",width:"200px",maxHeight:"fit-content"},
+    styles : {border:"1px solid",minHeight:"200px",width:"200px",height:"fit-content"},
     kind:"Container",
     contents:null
   }]
 }
 
-export const webBuilder = (prop:EditorContainerType | EditorElementType ) => {
-  if(prop.kind == "Elem"){
-    return (<Elem contents={prop.contents} styles={prop.styles} kind={prop.kind} />)
-  }else{
-    return(<Component contents={prop.contents} styles={prop.styles} kind={prop.kind} recFunc={webBuilder}/>)
-  }
-}
-
 const Webplayground = () => {
+
+  const webBuilder = (prop:EditorContainerType | EditorElementType ) => {
+    if(prop.kind == "Elem"){
+      return (<Elem contents={prop.contents} styles={prop.styles} kind={prop.kind} />)
+    }else{
+      return(<Component contents={prop.contents} styles={prop.styles} kind={prop.kind} recFunc={webBuilder}/>)
+    }
+  }
+
   return (
     <div style={{width:"80vw",height:"100vh"}}>Webplayground<br/>
     {

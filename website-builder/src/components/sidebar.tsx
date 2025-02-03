@@ -12,10 +12,10 @@ const Sidebar = () => {
 
     return(
         <div style={{width:"10vw",border:"1px solid",height:"100vh"}}>
-            <button onClick={() => update([...state,1])}>
+            <button onClick={() => update([...state,1])} draggable>
                 Component
             </button>
-            <button>
+            <button draggable>
                 Element
             </button>
         </div>

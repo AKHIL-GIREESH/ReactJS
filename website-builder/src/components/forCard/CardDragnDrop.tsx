@@ -1,5 +1,5 @@
 import { useContext, useState } from "react"
-import { EditorContext } from "../providers/editorProvider"
+import { EditorContext } from "../../providers/editorProvider"
 import CardTemp from "./CardTemp"
 
 export type card = {
