@@ -1,16 +1,11 @@
 import React from "react"
 
-export type EditorContainerType = {
-    styles: React.CSSProperties
-    contents: EditorContainerType[]
-}
-
 export type EditorElementType = {
     styles: React.CSSProperties
     contents: string
 }
 
-export type EditorBodyType = {
+export type EditorContainerType = {
     styles: React.CSSProperties
     contents: (EditorContainerType | EditorElementType)[]
 }
