@@ -10,9 +10,9 @@ const Component: React.FC<ComponentProps> = ({ contents, styles, kind, recFunc }
   return (
     <>
         <div style={styles}>
-        {contents?.map(item => recFunc(item))}
+            {contents?.map(item => recFunc(item))}
         </div>
-        <TComponentArea/>
+        <TComponentArea styles={styles}/>
     </>
   );
 };
