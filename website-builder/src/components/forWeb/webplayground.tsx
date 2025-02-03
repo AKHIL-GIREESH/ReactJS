@@ -1,6 +1,8 @@
 //type Props = {}
 
-import { EditorContainerType, EditorElementType } from "../types/editor"
+import { EditorContainerType, EditorElementType } from "../../types/editor"
+import Component from "./Component"
+import Elem from "./Elem"
 
 const website:EditorContainerType = {
   styles : {border:"1px solid",minHeight:"200px",width:"200px",maxHeight:"fit-content"},
@@ -16,11 +18,11 @@ const website:EditorContainerType = {
   }]
 }
 
-const webBuilder = (prop:EditorContainerType | EditorElementType ) => {
+export const webBuilder = (prop:EditorContainerType | EditorElementType ) => {
   if(prop.kind == "Elem"){
-    return (<p style={prop.styles}>{prop.contents}</p>)
+    return (<Elem contents={prop.contents} styles={prop.styles} kind={prop.kind} />)
   }else{
-    return(<div style={prop.styles}>{prop.contents?.map(item => webBuilder(item))}</div>)
+    return(<Component contents={prop.contents} styles={prop.styles} kind={prop.kind} recFunc={webBuilder}/>)
   }
 }
 
