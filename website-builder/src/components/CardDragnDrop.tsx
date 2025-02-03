@@ -37,7 +37,7 @@ const CardDragnDrop = () => {
                     {cards?.map(({index,side}) => side === 1 && <CardTemp key={""+index} index={index} side={side} setCard={setCard} onDRag={onDRag}/>)}
                 </div>
                 <div>
-                {cards?.map(({index,side}) => side === 2 && <CardTemp key={""+index} index={index} side={side} setCard={setCard} onDRag={onDRag}/>)}
+                    {cards?.map(({index,side}) => side === 2 && <CardTemp key={""+index} index={index} side={side} setCard={setCard} onDRag={onDRag}/>)}
                 </div>
             </div>
         </div>

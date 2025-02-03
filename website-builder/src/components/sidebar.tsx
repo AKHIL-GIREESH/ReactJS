@@ -8,6 +8,7 @@ const Sidebar = () => {
     }
 
     const {state,update} = editorContext
+    console.log(state)
 
     return(
         <div style={{width:"10vw",border:"1px solid",height:"100vh"}}>
