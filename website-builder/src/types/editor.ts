@@ -2,12 +2,14 @@ import React from "react"
 
 export type EditorElementType = {
     styles: React.CSSProperties
+    kind: "Elem"
     contents: string
 }
 
 export type EditorContainerType = {
     styles: React.CSSProperties
-    contents: (EditorContainerType | EditorElementType)[]
+    kind: "Container"
+    contents: (EditorContainerType | EditorElementType)[] | null
 }
 
 export type editorContextType = {
