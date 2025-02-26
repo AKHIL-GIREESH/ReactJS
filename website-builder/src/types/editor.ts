@@ -1,5 +1,12 @@
 import React from "react"
 
+export type elementKind = 'Elem' | 'Container'
+
+export type sideBarSelectionContext = {
+    state: elementKind | null,
+    update: (val: elementKind) => void
+}
+
 export type EditorElementType = {
     styles: React.CSSProperties
     kind: "Elem"
@@ -17,18 +24,16 @@ export type editorContextType = {
     update: (val: Number[]) => void
 }
 
-// export type EditorBtns = 'text'
-//     | 'container'
-//     | 'section'
-//     | 'contactForm'
-//     | 'paymentForm'
-//     | 'link'
-//     | '2Col'
-//     | 'video'
-//     | '__body'
-//     | 'image'
-//     | null
-//     | '3Col'
+// | 'section'
+// | 'contactForm'
+// | 'paymentForm'
+// | 'link'
+// | '2Col'
+// | 'video'
+// | '__body'
+// | 'image'
+// | null
+// | '3Col'
 
 // export type DeviceTypes = "Desktop" | "Mobile" | "Tablet"
 

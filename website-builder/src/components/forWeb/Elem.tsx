@@ -1,4 +1,3 @@
-import React from 'react'
 import { EditorElementType } from '../../types/editor'
 import TComponentArea from './TComponentArea'
 
