@@ -1,21 +1,25 @@
 import { useContext } from "react"
-import { EditorContext } from "../providers/editorProvider"
+import { EditorContext, SideBarDrag } from "../providers/editorProvider"
 
 const Sidebar = () => {
-    const editorContext = useContext(EditorContext)
-    if(!editorContext){
+    //const editorContext = useContext(EditorContext)
+    const sideBarSelectionContext = useContext(SideBarDrag)
+
+    if(!sideBarSelectionContext){
         throw new Error("error")
     }
 
-    const {state,update} = editorContext
+    const {state,update} = sideBarSelectionContext
+
+    // const {state,update} = editorContext
     console.log(state)
 
     return(
         <div style={{width:"10vw",border:"1px solid",height:"100vh"}}>
-            <button onClick={() => update([...state,1])} draggable>
+            <button draggable onDrag={() => update("Container")}>
                 Component
             </button>
-            <button draggable>
+            <button draggable onDrag={() => update("Elem")}>
                 Element
             </button>
         </div>
