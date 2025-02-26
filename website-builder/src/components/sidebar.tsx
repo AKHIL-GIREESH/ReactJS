@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { EditorContext, SideBarDrag } from "../providers/editorProvider"
+import { SideBarDrag } from "../providers/editorProvider"
 
 const Sidebar = () => {
     //const editorContext = useContext(EditorContext)
