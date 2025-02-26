@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react"
+import { useContext, useState } from "react"
 import { SideBarDrag } from "../../providers/editorProvider"
 import { elementKind } from "../../types/editor"
 
 //type Props = {}
 
-const TComponentArea = ({styles}:{styles:React.CSSProperties}) => {
+const TPlaceHolderArea = () => {
   const [showArea,setShowArea] = useState(false)
 
   const sideBarSelectionContext = useContext(SideBarDrag)
@@ -40,4 +40,4 @@ const TComponentArea = ({styles}:{styles:React.CSSProperties}) => {
   )
 }
 
-export default TComponentArea
+export default TPlaceHolderArea
