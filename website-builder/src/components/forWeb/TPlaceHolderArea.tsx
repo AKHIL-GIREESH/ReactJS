@@ -4,7 +4,7 @@ import { elementKind } from "../../types/editor"
 
 //type Props = {}
 
-const TPlaceHolderArea = () => {
+const TPlaceHolderArea = ({parent, id}:{parent:string, id:string}) => {
   const [showArea,setShowArea] = useState(false)
 
   const sideBarSelectionContext = useContext(SideBarDrag)
@@ -34,9 +34,10 @@ const TPlaceHolderArea = () => {
   //   color:"black"
   // }
   return (
-    <>
-      <div onDragEnter={() => setShowArea(true)} onDragLeave={() => setShowArea(false)} onDragOver={e => e.preventDefault()} style={showArea?selectStyle(state):{opacity:0}}>Drop Here</div>
-    </>
+      <div id={id} onDragEnter={() => setShowArea(true)} onDragLeave={() => setShowArea(false)} onDragOver={e => e.preventDefault()} style={showArea?selectStyle(state):{opacity:0}}>
+        Drop Here
+      </div>
+
   )
 }
 

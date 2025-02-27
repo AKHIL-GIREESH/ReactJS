@@ -8,12 +8,16 @@ export type sideBarSelectionContext = {
 }
 
 export type EditorElementType = {
+    parent: string
+    id: string
     styles: React.CSSProperties
     kind: "Elem"
     contents: string
 }
 
 export type EditorContainerType = {
+    parent: string
+    id: string
     styles: React.CSSProperties
     kind: "Container"
     contents: (EditorContainerType | EditorElementType)[] | null
