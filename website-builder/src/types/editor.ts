@@ -24,8 +24,8 @@ export type EditorContainerType = {
 }
 
 export type editorContextType = {
-    state: Number[],
-    update: (val: Number[]) => void
+    state: EditorContainerType | null,
+    update: (val: EditorContainerType | EditorElementType) => void
 }
 
 // | 'section'
