@@ -26,11 +26,11 @@ const website:EditorContainerType = {
 
 const Webplayground = () => {
 
-  const webBuilder = (prop:EditorContainerType | EditorElementType ) => {
+  const webBuilder = (prop:EditorContainerType | EditorElementType,index:number = 0) => {
     if(prop.kind == "Elem"){
-      return (<Elem contents={prop.contents} styles={prop.styles} kind={prop.kind} parent={prop.parent} key={prop.id} id={prop.id}/>)
+      return (<Elem contents={prop.contents} styles={prop.styles} kind={prop.kind} parent={prop.parent} key={prop.id} id={prop.id} index={index}/>)
     }else{
-      return(<Component contents={prop.contents} styles={prop.styles} kind={prop.kind} recFunc={webBuilder} parent={prop.parent} key={prop.id} id={prop.id}/>)
+      return(<Component contents={prop.contents} styles={prop.styles} kind={prop.kind} recFunc={webBuilder} parent={prop.parent} key={prop.id} id={prop.id} index={index}/>)
     }
   }
 
