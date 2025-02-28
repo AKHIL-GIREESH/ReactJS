@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { SideBarDrag } from "../providers/editorProvider";
+import { SideBarDrag } from "../providers/SideBarSelectionProvider";
 import { elementKind } from "../types/editor";
 
 export const useGetStyles = () => {
