@@ -25,10 +25,9 @@ const website:EditorContainerType = {
     }]
 }
 
-const findElemAndUpdate = (container:EditorContainerType,parent:string,index:number):boolean => {
+const findElemAndUpdate = (container:EditorContainerType,parent:string,index:number,newContainer:EditorContainerType | EditorElementType):boolean => {
     if(container.id == parent){
         if (Array.isArray(container.contents)){
-            const newContainer = useGetElem(parent)
             container.contents.splice(index,0,newContainer)
             return true
         }
@@ -36,7 +35,7 @@ const findElemAndUpdate = (container:EditorContainerType,parent:string,index:num
 
     if (Array.isArray(container.contents)) {
         for (const item of container.contents) {
-          const found:boolean = findElemAndUpdate(item as EditorContainerType, parent,index);
+          const found:boolean = findElemAndUpdate(item as EditorContainerType, parent,index,newContainer);
           if (found) return found;
         }
       }
@@ -47,9 +46,9 @@ const findElemAndUpdate = (container:EditorContainerType,parent:string,index:num
 const reducer = (state:EditorContainerType,action:Action) => {
     switch (action.type) {
         case "addElement":
-            const {parent,index} = action
+            const {parent,index,newContainer} = action
             const newState = JSON.parse(JSON.stringify(state));
-            findElemAndUpdate(newState,parent,index)
+            findElemAndUpdate(newState,parent,index,newContainer)
 
             return newState;
         default:

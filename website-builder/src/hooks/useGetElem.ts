@@ -7,12 +7,18 @@ const useGetElem = (parent: string): EditorContainerType | EditorElementType => 
     const sideBarSelectionContext = useContext(SideBarDrag)
 
     if (sideBarSelectionContext == null) {
-        throw new Error("Error")
+        throw new Error("idk")
     }
 
     const { state } = sideBarSelectionContext
     if (!state) {
-        throw new Error("Error")
+        return {
+            parent: parent,
+            id: uuidv4(),
+            styles: { height: "50px", width: "50px", backgroundColor: "red" },
+            kind: "Container",
+            contents: null
+        }
     }
 
     if (state === "Container") {

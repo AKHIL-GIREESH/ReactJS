@@ -27,6 +27,7 @@ export type Action = {
     type: "addElement"
     parent: string
     index: number
+    newContainer: EditorContainerType | EditorElementType
 }
 
 export type editorContextType = {
