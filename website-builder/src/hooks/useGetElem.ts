@@ -25,7 +25,7 @@ const useGetElem = (parent: string): EditorContainerType | EditorElementType => 
         return {
             parent: parent,
             id: uuidv4(),
-            styles: { height: "50px", width: "50px", backgroundColor: "red" },
+            styles: { border: "1px solid red", minHeight: "200px", width: "200px", height: "fit-content", resize: "both", overflow: "auto", backgroundColor: "red" },
             kind: state,
             contents: null
         }
