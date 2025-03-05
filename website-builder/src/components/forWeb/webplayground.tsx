@@ -1,30 +1,44 @@
 //type Props = {}
-import { v4 as uuidv4 } from 'uuid';
 import { EditorContainerType, EditorElementType } from "../../types/editor"
 import Component from "./Component"
 import Elem from "./Elem"
+import { EditorContext } from '../../providers/editorProvider';
+import { useContext } from 'react';
 
-const website:EditorContainerType = {
-  parent : "0",
-  id : "1",
-  styles : {border:"1px solid red",minHeight:"200px",width:"200px",height:"fit-content",resize:"both",overflow:"auto"},
-  kind:"Container",
-  contents : [{
-    parent:"1",
-    id:uuidv4(),
-    styles: {border:"1px solid"},
-    kind:"Elem",
-    contents: "works"
-  },{
-    parent:"1",
-    id:uuidv4(),
-    styles : {border:"1px solid",minHeight:"200px",width:"200px",height:"fit-content"},
-    kind:"Container",
-    contents:null
-  }]
-}
+
+// const website:EditorContainerType = {
+//   parent : "0",
+//   id : "1",
+//   styles : {border:"1px solid red",minHeight:"200px",width:"200px",height:"fit-content",resize:"both",overflow:"auto"},
+//   kind:"Container",
+//   contents : [{
+//     parent:"1",
+//     id:uuidv4(),
+//     styles: {border:"1px solid"},
+//     kind:"Elem",
+//     contents: "works"
+//   },{
+//     parent:"1",
+//     id:uuidv4(),
+//     styles : {border:"1px solid",minHeight:"200px",width:"200px",height:"fit-content"},
+//     kind:"Container",
+//     contents:null
+//   }]
+// }
 
 const Webplayground = () => {
+
+  const editorContext = useContext(EditorContext)
+
+  if (!editorContext){
+    throw new Error("Not initialised")
+  }
+
+  const {state:website} = editorContext
+
+  if(!website){
+    throw new Error("Website empty")
+  }
 
   const webBuilder = (prop:EditorContainerType | EditorElementType,index:number = 0) => {
     if(prop.kind == "Elem"){
