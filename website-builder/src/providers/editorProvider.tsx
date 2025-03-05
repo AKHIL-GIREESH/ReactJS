@@ -1,7 +1,6 @@
 import React, { createContext, useReducer } from "react";
 import { Action, EditorContainerType, editorContextType, EditorElementType } from "../types/editor";
-import { v4 as uuidv4 } from 'uuid';
-import useGetElem from "../hooks/useGetElem";
+import { v4 as uuidv4 } from 'uuid'
 
 export const EditorContext = createContext<editorContextType | null >(null)
 

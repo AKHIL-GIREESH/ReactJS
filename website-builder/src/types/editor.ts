@@ -35,6 +35,16 @@ export type editorContextType = {
     action: React.Dispatch<Action>
 }
 
+export type webBuilderSelection = {
+    parent: string,
+    id: string
+}
+
+export type webBuilderSelectionContext = {
+    item: webBuilderSelection | null,
+    update: (val: webBuilderSelection) => void
+}
+
 // | 'section'
 // | 'contactForm'
 // | 'paymentForm'

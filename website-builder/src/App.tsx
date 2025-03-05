@@ -4,18 +4,21 @@ import Sidebar from './components/sidebar'
 import Treee from './components/treee'
 import EditorProvider from './providers/editorProvider'
 import SideBarSelectionProvider from './providers/SideBarSelectionProvider'
+import WebBuilderSelectionProvider from './providers/webBuilderSelectionProvider'
 
 function App() {
 
   return (
     <EditorProvider>
-      <SideBarSelectionProvider>
-        <div style={{display:"flex"}}>
-          <Treee/>
-          <Playground/>
-          <Sidebar/>
-        </div>
-      </SideBarSelectionProvider>
+      <WebBuilderSelectionProvider>
+        <SideBarSelectionProvider>
+          <div style={{display:"flex"}}>
+            <Treee/>
+            <Playground/>
+            <Sidebar/>
+          </div>
+        </SideBarSelectionProvider>
+      </WebBuilderSelectionProvider>
     </EditorProvider>
   )
 }
