@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useGetStyles } from "../../hooks/getStyles"
+import { useGetStyles } from "../../hooks/useGetStyles"
 
 const TPlaceHolderArea = ({parent, id,index}:{parent:string, id:string,index:number}) => {
   const [showArea,setShowArea] = useState(false)

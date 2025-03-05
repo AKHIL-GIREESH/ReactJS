@@ -1,6 +1,7 @@
 import React, { createContext, useReducer } from "react";
 import { EditorContainerType, editorContextType, EditorElementType } from "../types/editor";
 import { v4 as uuidv4 } from 'uuid';
+import useGetElem from "../hooks/useGetElem";
 
 export const EditorContext = createContext<editorContextType | null >(null)
 
@@ -24,30 +25,33 @@ const website:EditorContainerType = {
     }]
 }
 
-const findElem = (container:EditorContainerType,parent:string,index:number,newContainer:EditorContainerType|EditorElementType):boolean => {
+const findElemAndUpdate = (container:EditorContainerType,parent:string,index:number):boolean => {
     if(container.id == parent){
         if (Array.isArray(container.contents)){
-            const contents = container.contents
-            contents.splice(index,0,newContainer)
+            const newContainer = useGetElem(parent)
+            container.contents.splice(index,0,newContainer)
             return true
         }
     }
 
     if (Array.isArray(container.contents)) {
         for (const item of container.contents) {
-          const found:boolean = findElem(item as EditorContainerType, parent,index,newContainer);
+          const found:boolean = findElemAndUpdate(item as EditorContainerType, parent,index);
           if (found) return found;
         }
       }
 
-      return false
+    return false
 }
 
 const reducer = (state:EditorContainerType,action:any) => {
     switch (action.type) {
         case "addElement":
             const {parent,index} = action
+            const newState = JSON.parse(JSON.stringify(state));
+            findElemAndUpdate(newState,parent,index)
 
+            return newState;
         default:
           return state;
       }
@@ -56,18 +60,11 @@ const reducer = (state:EditorContainerType,action:any) => {
 const EditorProvider = ({children}:React.PropsWithChildren) => {
     const [state, dispatch] = useReducer(reducer, website);
 
-    
-
-
-
-
-    
-
     return(
     
         <EditorContext.Provider value={{
-            state:website,
-            update:setEditorState
+            state:state,
+            update:dispatch
         }}>
             {children}
         </EditorContext.Provider>

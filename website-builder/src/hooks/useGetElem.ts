@@ -1,0 +1,38 @@
+import { useContext } from "react"
+import { SideBarDrag } from "../providers/SideBarSelectionProvider"
+import { v4 as uuidv4 } from 'uuid';
+import { EditorContainerType, EditorElementType } from "../types/editor";
+
+const useGetElem = (parent: string): EditorContainerType | EditorElementType => {
+    const sideBarSelectionContext = useContext(SideBarDrag)
+
+    if (sideBarSelectionContext == null) {
+        throw new Error("Error")
+    }
+
+    const { state } = sideBarSelectionContext
+    if (!state) {
+        throw new Error("Error")
+    }
+
+    if (state === "Container") {
+        return {
+            parent: parent,
+            id: uuidv4(),
+            styles: { height: "50px", width: "50px", backgroundColor: "red" },
+            kind: state,
+            contents: null
+        }
+    } else {
+        return {
+            parent: parent,
+            id: uuidv4(),
+            styles: { border: "1px solid" },
+            kind: state,
+            contents: "Some text"
+        }
+    }
+
+}
+
+export default useGetElem
