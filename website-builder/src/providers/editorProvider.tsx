@@ -1,5 +1,5 @@
 import React, { createContext, useReducer } from "react";
-import { EditorContainerType, editorContextType, EditorElementType } from "../types/editor";
+import { Action, EditorContainerType, editorContextType, EditorElementType } from "../types/editor";
 import { v4 as uuidv4 } from 'uuid';
 import useGetElem from "../hooks/useGetElem";
 
@@ -21,7 +21,7 @@ const website:EditorContainerType = {
       id:uuidv4(),
       styles : {border:"1px solid",minHeight:"200px",width:"200px",height:"fit-content"},
       kind:"Container",
-      contents:null
+      contents:[]
     }]
 }
 
@@ -44,7 +44,7 @@ const findElemAndUpdate = (container:EditorContainerType,parent:string,index:num
     return false
 }
 
-const reducer = (state:EditorContainerType,action:any) => {
+const reducer = (state:EditorContainerType,action:Action) => {
     switch (action.type) {
         case "addElement":
             const {parent,index} = action
@@ -64,7 +64,7 @@ const EditorProvider = ({children}:React.PropsWithChildren) => {
     
         <EditorContext.Provider value={{
             state:state,
-            update:dispatch
+            action:dispatch
         }}>
             {children}
         </EditorContext.Provider>

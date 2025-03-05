@@ -23,9 +23,15 @@ export type EditorContainerType = {
     contents: (EditorContainerType | EditorElementType)[] | null
 }
 
+export type Action = {
+    type: "addElement"
+    parent: string
+    index: number
+}
+
 export type editorContextType = {
     state: EditorContainerType | null,
-    update: (val: EditorContainerType | EditorElementType) => void
+    action: React.Dispatch<Action>
 }
 
 // | 'section'
