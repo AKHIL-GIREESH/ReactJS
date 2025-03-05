@@ -12,7 +12,10 @@ const Elem = ({contents,styles,kind, parent , id,index} : EditorElementType & {i
 
   return (
     <>
-      <input type="text" value={contents} style={styles} onClick={() => update({parent:parent,id:id})}></input>
+      <input type="text" value={contents} style={styles} onClick={(e) => {
+            e.stopPropagation()
+            update({parent:parent,id:id})
+          }}></input>
       <TPlaceHolderArea parent={parent} id={id} key={parent+id} index={index+1}/>
     </>
   )
