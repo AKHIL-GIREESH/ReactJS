@@ -29,7 +29,7 @@ function App() {
     setUploading(true)
 
     try {
-      const response = await fetch('http://localhost:3000/upload', {
+      const response = await fetch('http://localhost:3000/assets/upload/67cd66055fbe93598792b1f8', {
         method: 'POST',
         body: formData,
       })
